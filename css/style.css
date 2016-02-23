@@ -643,9 +643,11 @@ textarea {
 }
 .isotope-container {
 	overflow: hidden;
+	text-align: center;
+	margin: 0 auto;
 }
 .isotope-item {
-	margin-bottom: 20px;
+	max-width: 380px;
 }
 .isotope-item .btn-default {
 	color: #999999;
@@ -653,12 +655,43 @@ textarea {
 .isotope-item .btn-default:hover {
 	color: #ffffff;
 }
-@media (max-width:480px) {
+@media (max-width:380px) {
 	.filters .nav-pills > li {
 		width: 100%;
 		display: block;
 	}
 }
+
+
+/* ---- grid ---- */
+
+.grid {
+  background: #DDD;
+  max-width: 1200px;
+}
+
+/* clear fix */
+.grid:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+/* ---- .grid-item ---- */
+
+.grid-item {
+  float: left;
+  width: 100px;
+  height: 100px;
+  background: #0D8;
+  border: 2px solid #333;
+  border-color: hsla(0, 0%, 0%, 0.7);
+}
+
+.grid-item--width2 { width: 200px; }
+.grid-item--height2 { height: 200px; }
+
+
 
 /* Images Overlay
 ----------------------------------------------------------------------------- */
@@ -673,13 +706,13 @@ textarea {
 	bottom: -1px;
 	left: 0;
 	right: -1px;
-	background-color: rgba(85, 172, 238, 0.9);
+	background-color: rgba(0, 0, 0, 0.3);
 	cursor: pointer;
 	overflow: hidden;
 	opacity: 0;
 	filter: alpha(opacity=0);
-	-webkit-transform: scale(0.8);
-	transform: scale(0.8);
+	/*-webkit-transform: scale(0.8);
+	transform: scale(0.8);*/
 	-webkit-transition: all linear 0.2s;
 	-moz-transition: all linear 0.2s;
 	-ms-transition: all linear 0.2s;
@@ -689,10 +722,21 @@ textarea {
 .overlay:hover {
 	text-decoration: none;
 }
-.overlay span {
+
+.bottom-text {
 	position: absolute;
+	left: 0; bottom : 0;
+	padding: 5px;
+	width: 100%;
+	background-color: rgba(85, 172, 238, 1.0);
+	opacity: 1;
+}
+
+.overlay span {
+	/*position: absolute;
 	display: block;
-	bottom: 10px;
+	bottom: 10px;*/
+
 	text-align: center;
 	width: 100%;
 	color: #ffffff;
