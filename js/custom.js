@@ -35,11 +35,10 @@ var Projects = [
 var catContainer = document.getElementById("category_container");
 for (var cat in Categories) {
   var node = document.createElement('li');
-  node.innerHTML = "<a href=\"#\" data-filter=\"." + Categories[cat].id + "\">" + Categories[cat].name + "</a>";
+  node.innerHTML = "<a href=\"content.html\" data-filter=\"." + Categories[cat].id + "\">" + Categories[cat].name + "</a>";
   catContainer.appendChild(node);
   console.log(node);
 }
-
 
 /*
 var categoryNode = $('#all_filters');
@@ -59,6 +58,8 @@ for (var i=0;i<Projects.length;i++) {
 
   var div = document.createElement('div');
 
+  div.setAttribute('id', 'test');
+
   var className = "isotope-item";
   for (var cat in cProj.categories) {
     className += " " + cProj.categories[cat].id;
@@ -66,7 +67,26 @@ for (var i=0;i<Projects.length;i++) {
 
   div.setAttribute("class", className);
 
-  div.innerHTML = "<div class=\"image-box\"><div class=\"overlay-container\"><img src=\"images/" + cProj.image + "\" alt=\"\"><a class=\"overlay\" data-toggle=\"modal\" data-target=\"#project-" + i +"\"><div class=\"bottom-text\"><span>" + cProj.title + "</span></div></a></div></div>"
+  div.innerHTML = "<div class=\"image-box\"><div class=\"overlay-container\"><img src=\"images/" + cProj.image + "\" alt=\"\"><a href=\"content.html\" class=\"overlay\" data-toggle=\"modal\" data-target=\"#project-" + i +"\"><div class=\"bottom-text\"><span>" + cProj.title + "</span></div></a></div></div>"
   container.appendChild(div);
   console.log(className);
 }
+
+$('body').on("show.bs.modal", function(e) {
+      //var link = $(e.relatedTarget);
+      var body = $(this).find(link.attr('data-target')).find(".modal-body");
+
+      if (body.children().length == 0 ) {
+        body.load(link.attr("href"));
+      } else {
+        body.find('video')[0].play();
+      }
+  });
+
+$('body').on('hidden.bs.modal', '.modal', function () {
+  console.log("Hiding modal");
+  $(this).find('video').each(function(num,val){
+      this.pause();
+      this.currentTime = 0;
+  });
+});
