@@ -7,6 +7,17 @@
  * File Description: Place here your custom scripts
  */
 
+ var $loading = $('.spinner').hide();
+ console.log("Hiding " + $loading);
+ $(document)
+ .ajaxStart(function () {
+   console.log("Spinner!");
+   $loading.show();
+ })
+ .ajaxStop(function () {
+   $loading.hide();
+ });
+
 var Categories = {
     MobileApp:   {id: "mobile-apps",   name:"Mobile Apps"},
     MobileGame:  {id: "mobile-games",  name:"Mobile Games"},
@@ -35,7 +46,7 @@ var Projects = [
 var catContainer = document.getElementById("category_container");
 for (var cat in Categories) {
   var node = document.createElement('li');
-  node.innerHTML = "<a href=\"content.html\" data-filter=\"." + Categories[cat].id + "\">" + Categories[cat].name + "</a>";
+  node.innerHTML = "<a data-filter=\"." + Categories[cat].id + "\">" + Categories[cat].name + "</a>";
   catContainer.appendChild(node);
   console.log(node);
 }
@@ -67,20 +78,22 @@ for (var i=0;i<Projects.length;i++) {
 
   div.setAttribute("class", className);
 
-  div.innerHTML = "<div class=\"image-box\"><div class=\"overlay-container\"><img src=\"images/" + cProj.image + "\" alt=\"\"><a href=\"content.html\" class=\"overlay\" data-toggle=\"modal\" data-target=\"#project-" + i +"\"><div class=\"bottom-text\"><span>" + cProj.title + "</span></div></a></div></div>"
+  div.innerHTML = "<div class=\"image-box\"><div class=\"overlay-container\"><img src=\"images/" + cProj.image + "\" alt=\"\"><a class=\"overlay\" data-toggle=\"modal\" data-target=\"#project-" + i +"\"><div class=\"bottom-text\"><span>" + cProj.title + "</span></div></a></div></div>"
   container.appendChild(div);
   console.log(className);
 }
 
 $('body').on("show.bs.modal", function(e) {
-      //var link = $(e.relatedTarget);
+      var link = $(e.relatedTarget);
       var body = $(this).find(link.attr('data-target')).find(".modal-body");
 
-      if (body.children().length == 0 ) {
+      /*if (body.children().length == 0 ) {
         body.load(link.attr("href"));
-      } else {
+      } else {*/
+      if (body.find('video')[0] != null)
         body.find('video')[0].play();
-      }
+      //}
+
   });
 
 $('body').on('hidden.bs.modal', '.modal', function () {
@@ -89,4 +102,45 @@ $('body').on('hidden.bs.modal', '.modal', function () {
       this.pause();
       this.currentTime = 0;
   });
+});
+
+jQuery(document).ready(function ($) {
+    var jssor_1_SlideshowTransitions = [
+      {$Duration:1200,$Opacity:2}
+    ];
+
+    var jssor_1_options = {
+      $AutoPlay: true,
+      $SlideshowOptions: {
+        $Class: $JssorSlideshowRunner$,
+        $Transitions: jssor_1_SlideshowTransitions,
+        $TransitionsOrder: 1
+      },
+      $ArrowNavigatorOptions: {
+        $Class: $JssorArrowNavigator$
+      },
+      $BulletNavigatorOptions: {
+        $Class: $JssorBulletNavigator$
+      }
+    };
+
+    var jssor_1_slider = new $JssorSlider$("jssor_1", jssor_1_options);
+
+    //responsive code begin
+    //you can remove responsive code if you don't want the slider scales while window resizing
+    function ScaleSlider() {
+        var refSize = jssor_1_slider.$Elmt.parentNode.clientWidth;
+        if (refSize) {
+            refSize = Math.min(refSize, 600);
+            jssor_1_slider.$ScaleWidth(refSize);
+        }
+        else {
+            window.setTimeout(ScaleSlider, 30);
+        }
+    }
+    ScaleSlider();
+    $(window).bind("load", ScaleSlider);
+    $(window).bind("resize", ScaleSlider);
+    $(window).bind("orientationchange", ScaleSlider);
+    //responsive code end
 });

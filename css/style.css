@@ -760,3 +760,118 @@ textarea {
 	-webkit-transform: scale(1);
 	transform: scale(1);
 }
+
+/* Loading spinner
+----------------------------------------------------------------------------- */
+.spinner {
+	position: fixed;
+	overflow: show;
+  margin: auto;
+	z-index: 999;
+	height: 2em;
+  width: 6em;
+  text-align: center;
+	top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+/* Transparent Overlay */
+.spinner:before {
+  content: '';
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.3);
+}
+
+.spinner > div {
+  width: 18px;
+  height: 18px;
+  background-color: #ff0000;
+
+  border-radius: 100%;
+  display: inline-block;
+  -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+  animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+}
+
+.spinner .bounce1 {
+  -webkit-animation-delay: -0.32s;
+  animation-delay: -0.32s;
+}
+
+.spinner .bounce2 {
+  -webkit-animation-delay: -0.16s;
+  animation-delay: -0.16s;
+}
+
+@-webkit-keyframes sk-bouncedelay {
+  0%, 80%, 100% { -webkit-transform: scale(0) }
+  40% { -webkit-transform: scale(1.0) }
+}
+
+@keyframes sk-bouncedelay {
+  0%, 80%, 100% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  } 40% {
+    -webkit-transform: scale(1.0);
+    transform: scale(1.0);
+  }
+}
+
+/* jssor slider bullet navigator skin 05 css */
+/*
+.jssorb05 div           (normal)
+.jssorb05 div:hover     (normal mouseover)
+.jssorb05 .av           (active)
+.jssorb05 .av:hover     (active mouseover)
+.jssorb05 .dn           (mousedown)
+*/
+.jssorb05 {
+    position: absolute;
+}
+/* size of bullet elment
+.jssorb05 div, .jssorb05 div:hover, .jssorb05 .av {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background: url('img/b05.png') no-repeat;
+    overflow: hidden;
+    cursor: pointer;
+} */
+.jssorb05 div { background-position: -7px -7px; }
+.jssorb05 div:hover, .jssorb05 .av:hover { background-position: -37px -7px; }
+.jssorb05 .av { background-position: -67px -7px; }
+.jssorb05 .dn, .jssorb05 .dn:hover { background-position: -97px -7px; }
+
+/* jssor slider arrow navigator skin 12 css */
+/*
+.jssora12l                  (normal)
+.jssora12r                  (normal)
+.jssora12l:hover            (normal mouseover)
+.jssora12r:hover            (normal mouseover)
+.jssora12l.jssora12ldn      (mousedown)
+.jssora12r.jssora12rdn      (mousedown)
+*/
+.jssora12l, .jssora12r {
+    display: block;
+    position: absolute;
+    /* size of arrow element */
+    width: 30px;
+    height: 46px;
+    cursor: pointer;
+    background: url('img/a12.png') no-repeat;
+    overflow: hidden;
+}
+.jssora12l { background-position: -16px -37px; }
+.jssora12r { background-position: -75px -37px; }
+.jssora12l:hover { background-position: -136px -37px; }
+.jssora12r:hover { background-position: -195px -37px; }
+.jssora12l.jssora12ldn { background-position: -256px -37px; }
+.jssora12r.jssora12rdn { background-position: -315px -37px; }
