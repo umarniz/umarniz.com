@@ -28,18 +28,19 @@ var Categories = {
 };
 
 var Projects = [
-  { title:"Ome - Android",                  image:"portfolio-1.jpg", categories: [Categories.MobileApp] },
-  { title:"Ome - iOS",                      image:"portfolio-1.jpg", categories: [Categories.MobileApp] },
-  { title:"Samsung - Art of Feeling",       image:"samsung_aof.jpg", categories: [Categories.MobileApp] },
-  { title:"ABC - Future of VR",             image:"abc_vr_demo.jpg", categories: [Categories.VR] },
-  { title:"Unilever - Interactive Table",   image:"interactive_table.jpg", categories: [Categories.Unity] },
-  { title:"Unilever - Street Window",       image:"street_window.jpg", categories: [Categories.Unity] },
-  { title:"Unilever - Aisle Leader",        image:"aisle_leader.jpg", categories: [Categories.Unity] },
-  { title:"Unilever - Transparent Fridge",  image:"transparent_fridge.jpg", categories: [Categories.Unity] },
-  { title:"Unilever - Deep Freezer",        image:"freezer.jpg", categories: [Categories.Unity] },
-  { title:"Death Mile",                     image:"death_mile.jpg", categories: [Categories.MobileGame, Categories.Unity] },
-  { title:"BLAZ3D",                         image:"portfolio-1.jpg", categories: [Categories.MobileGame] },
-  { title:"Slash UX",                       image:"portfolio-1.jpg", categories: [Categories.Product] }
+  { title:"Ome",                            id:"ome", categories: [Categories.MobileApp] },
+  { title:"Samsung - Art of Feeling",       id:"samsung_aof", categories: [Categories.MobileApp] },
+  { title:"ABC - Future of VR",             id:"abc_vr_demo", categories: [Categories.VR] },
+  { title:"Unilever - Interactive Table",   id:"interactive_table", categories: [Categories.Unity] },
+  { title:"Unilever - Street Window",       id:"street_window", categories: [Categories.Unity] },
+  { title:"Unilever - Aisle Leader",        id:"aisle_leader", categories: [Categories.Unity] },
+  { title:"Unilever - Transparent Fridge",  id:"transparent_fridge", categories: [Categories.Unity] },
+  { title:"Unilever - Deep Freezer",        id:"freezer", categories: [Categories.Unity] },
+  { title:"Interactive Music",              id:"interactive_music", categories: [Categories.Misc] },
+  { title:"Circuit Valencia",               id:"circuit_valencia", categories: [Categories.VR] },
+  { title:"Death Mile",                     id:"death_mile", categories: [Categories.MobileGame, Categories.Unity] },
+  { title:"BLAZ3D",                         id:"blaz3d", categories: [Categories.MobileGame] },
+  { title:"Slash UX",                       id:"portfolio-1", categories: [Categories.Product] }
 ];
 
 // Fill category nodes
@@ -78,7 +79,7 @@ for (var i=0;i<Projects.length;i++) {
 
   div.setAttribute("class", className);
 
-  div.innerHTML = "<div class=\"image-box\"><div class=\"overlay-container\"><img src=\"images/" + cProj.image + "\" alt=\"\"><a class=\"overlay\" data-toggle=\"modal\" data-target=\"#project-" + i +"\"><div class=\"bottom-text\"><span>" + cProj.title + "</span></div></a></div></div>"
+  div.innerHTML = "<div class=\"image-box\"><div class=\"overlay-container\"><img src=\"images/" + cProj.id + ".jpg" + "\" alt=\"\"><a class=\"overlay\" data-toggle=\"modal\" data-target=\"#" + cProj.id + "\"><div class=\"bottom-text\"><span>" + cProj.title + "</span></div></a></div></div>"
   container.appendChild(div);
   console.log(className);
 }
