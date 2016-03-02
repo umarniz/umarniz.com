@@ -767,39 +767,45 @@
 						</div>
 						<div class="modal-body">
 
-							<div id="jssor_1" style="position: relative; margin: 0 auto; top: 0px; left: 0px; width: 600px; height: 400px; overflow: hidden; visibility: hidden;">
-			        <!-- Loading Screen -->
-			        <div data-u="loading" style="position: absolute; top: 0px; left: 0px;">
-			            <div style="filter: alpha(opacity=70); opacity: 0.7; position: absolute; display: block; top: 0px; left: 0px; width: 100%; height: 100%;"></div>
-			            <div style="position:absolute;display:block;background:url('img/loading.gif') no-repeat center center;top:0px;left:0px;width:100%;height:100%;"></div>
-			        </div>
-			        <div data-u="slides" style="cursor: default; position: relative; top: 0px; left: 0px; width: 600px; height: 400px; overflow: hidden;">
-			            <div data-p="112.50" style="display: none;">
-			                <img data-u="image" src="images/freezer/1.jpg" />
-			            </div>
-			            <div data-p="112.50" style="display: none;">
-			                <img data-u="image" src="images/freezer/2.jpg" />
-			            </div>
-			            <div data-p="112.50" style="display: none;">
-			                <img data-u="image" src="images/freezer/3.jpg" />
-			            </div>
-			            <div data-p="112.50" style="display: none;">
-			                <img data-u="image" src="images/freezer/4.jpg" />
-			            </div>
-									<div data-p="112.50" style="display: none;">
-			                <img data-u="image" src="images/freezer/5.jpg" />
-			            </div>
-			        </div>
-			        <!-- Bullet Navigator -->
-			        <div data-u="navigator" class="jssorb05" style="bottom:16px;right:16px;" data-autocenter="1">
-			            <!-- bullet navigator item prototype -->
-			            <div data-u="prototype" style="width:16px;height:16px;"></div>
-			        </div>
-			        <!-- Arrow Navigator -->
-			        <span data-u="arrowleft" class="jssora12l" style="top:0px;left:0px;width:30px;height:46px;" data-autocenter="2"></span>
-			        <span data-u="arrowright" class="jssora12r" style="top:0px;right:0px;width:30px;height:46px;" data-autocenter="2"></span>
-			        <a href="http://www.jssor.com" style="display:none">Slideshow Maker</a>
-			    </div>
+							<div id="freezer_carousel" class="carousel slide" data-ride="carousel">
+							  <!-- Indicators -->
+							  <ol class="carousel-indicators">
+							    <li data-target="#freezer_carousel" data-slide-to="0"></li>
+							    <li data-target="#freezer_carousel" data-slide-to="1"></li>
+							    <li data-target="#freezer_carouselfreezer_carousel" data-slide-to="2"></li>
+							    <li data-target="#freezer_carousel" data-slide-to="3"></li>
+							    <li data-target="#freezer_carousel" data-slide-to="4"></li>
+							  </ol>
+
+							  <!-- Wrapper for slides -->
+							  <div class="carousel-inner" role="listbox">
+							    <div class="item">
+							        <img src="images/freezer/1.jpg" data-color="white" alt="First Image" class="max-width:100%; max-height:100%;">
+							    </div>
+							    <div class="item">
+							        <img src="images/freezer/2.jpg" data-color="white" alt="Second Image" class="max-width:100%; max-height:100%;">
+							    </div>
+							    <div class="item">
+							        <img src="images/freezer/3.jpg" data-color="white" alt="Third Image" class="max-width:100%; max-height:100%;">
+							    </div>
+							    <div class="item">
+							        <img src="images/freezer/4.jpg" data-color="white" alt="Fourth Image" class="max-width:100%; max-height:100%;">
+							    </div>
+							    <div class="item">
+							        <img src="images/freezer/5.jpg" data-color="white" alt="Fifth Image" class="max-width:100%; max-height:100%;">
+							    </div>
+							  </div>
+
+							  <!-- Controls -->
+							  <a class="left carousel-control" href="#freezer_carousel" role="button" data-slide="prev">
+							    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+							    <span class="sr-only">Previous</span>
+							  </a>
+							  <a class="right carousel-control" href="#freezer_carousel" role="button" data-slide="next">
+							    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+							    <span class="sr-only">Next</span>
+							  </a>
+							</div>
 
 							<div class="row">
 								<div class="col-md-6">
@@ -826,9 +832,46 @@
 						</div>
 						<div class="modal-body">
 							<h4 class="text-center"> Unity 3D - iOS </h4>
-							<div class="align=center">
-								<!-- <iframe  width="480" height="315" src="https://itunes.apple.com/us/app/death-mile/id667523174?mt=8" frameborder="0" allowfullscreen></iframe> -->
+
+							<div id="deathmile_carousel" class="carousel slide" data-ride="carousel2">
+
+							  <ol class="carousel-indicators">
+							    <li data-target="#deathmile_carousel" data-slide-to="0"></li>
+							    <li data-target="#deathmile_carousel" data-slide-to="1"></li>
+							    <li data-target="#deathmile_carousel" data-slide-to="2"></li>
+							    <li data-target="#deathmile_carousel" data-slide-to="3"></li>
+							    <li data-target="#deathmile_carousel" data-slide-to="4"></li>
+							  </ol>
+
+							  <div class="carousel-inner" role="listbox">
+							    <div class="item">
+							        <img src="images/deathmile/1.jpg" data-color="white" alt="First Image" class="max-width:100%; max-height:100%;">
+							    </div>
+							    <div class="item">
+							        <img src="images/deathmile/2.jpg" data-color="white" alt="Second Image" class="max-width:100%; max-height:100%;">
+							    </div>
+							    <div class="item">
+							        <img src="images/deathmile/3.jpg" data-color="white" alt="Third Image" class="max-width:100%; max-height:100%;">
+							    </div>
+							    <div class="item">
+							        <img src="images/deathmile/4.jpg" data-color="white" alt="Fourth Image" class="max-width:100%; max-height:100%;">
+							    </div>
+							    <div class="item">
+							        <img src="images/deathmile/5.jpg" data-color="white" alt="Fifth Image" class="max-width:100%; max-height:100%;">
+							    </div>
+							  </div>
+
+
+							  <a class="left carousel-control" href="#deathmile_carousel" role="button" data-slide="prev">
+							    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+							    <span class="sr-only">Previous</span>
+							  </a>
+							  <a class="right carousel-control" href="#deathmile_carousel" role="button" data-slide="next">
+							    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+							    <span class="sr-only">Next</span>
+							  </a>
 							</div>
+
 							<div class="row">
 								<br/>
 								<div class="col-md-6">
@@ -854,6 +897,74 @@
 			<!-- Modal end -->
 
 			<!-- Modal -->
+			<div class="modal fade" id="smart_guide" tabindex="-1" role="dialog" aria-labelledby="project-8-label" aria-hidden="true">
+				<div class="modal-dialog modal-lg">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+							<h4 class="modal-title" id="project-8-label">Project Title</h4>
+						</div>
+						<div class="modal-body">
+
+							<div id="smartguide_carousel" class="carousel slide" data-ride="carousel">
+								<!-- Indicators -->
+								<ol class="carousel-indicators">
+									<li data-target="#smartguide_carousel" data-slide-to="0"></li>
+									<li data-target="#smartguide_carousel" data-slide-to="1"></li>
+									<li data-target="#smartguide_carousel" data-slide-to="2"></li>
+									<li data-target="#smartguide_carousel" data-slide-to="3"></li>
+									<li data-target="#smartguide_carousel" data-slide-to="4"></li>
+								</ol>
+
+								<!-- Wrapper for slides -->
+								<div class="carousel-inner" role="listbox">
+									<div class="item">
+											<img src="images/smartguide/1.jpg" data-color="white" alt="First Image" class="max-width:100%; max-height:100%;">
+									</div>
+									<div class="item">
+											<img src="images/smartguide/2.jpg" data-color="white" alt="Second Image" class="max-width:100%; max-height:100%;">
+									</div>
+									<div class="item">
+											<img src="images/smartguide/3.jpg" data-color="white" alt="Third Image" class="max-width:100%; max-height:100%;">
+									</div>
+									<div class="item">
+											<img src="images/smartguide/4.jpg" data-color="white" alt="Fourth Image" class="max-width:100%; max-height:100%;">
+									</div>
+									<div class="item">
+											<img src="images/smartguide/5.jpg" data-color="white" alt="Fifth Image" class="max-width:100%; max-height:100%;">
+									</div>
+									<div class="item">
+											<img src="images/smartguide/6.jpg" data-color="white" alt="Fifth Image" class="max-width:100%; max-height:100%;">
+									</div>
+								</div>
+
+								<!-- Controls -->
+								<a class="left carousel-control" href="#smartguide_carousel" role="button" data-slide="prev">
+									<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+									<span class="sr-only">Previous</span>
+								</a>
+								<a class="right carousel-control" href="#smartguide_carousel" role="button" data-slide="next">
+									<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+									<span class="sr-only">Next</span>
+								</a>
+							</div>
+
+							<div class="row">
+								<div class="col-md-6">
+									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque sed, quidem quis praesentium, ut unde. Quae sed, incidunt laudantium nesciunt, optio corporis quod earum pariatur omnis illo saepe numquam suscipit, nemo placeat dignissimos eius mollitia et quas officia doloremque ipsum labore rem deserunt vero! Magnam totam delectus accusantium voluptas et, tempora quos atque, fugiat, obcaecati voluptatibus commodi illo voluptates dolore nemo quo soluta quis.</p>
+									<p>Molestiae sed enim laboriosam atque delectus voluptates rerum nostrum sapiente obcaecati molestias quasi optio exercitationem, voluptate quis consequatur libero incidunt, in, quod. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos nobis officiis, autem earum tenetur quidem. Quae non dicta earum. Ipsum autem eaque cum dolor placeat corporis quisquam dolorum at nesciunt.</p>
+								</div>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Close</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Modal end -->
+
+			<!-- Modal -->
 			<div class="modal fade" id="blaz3d" tabindex="-1" role="dialog" aria-labelledby="project-10-label" aria-hidden="true">
 				<div class="modal-dialog modal-lg">
 					<div class="modal-content">
@@ -863,8 +974,8 @@
 						</div>
 						<div class="modal-body">
 							<h4 class="text-center"> Unity 3D - iOS - Android - Symbian </h4>
-							<div class="align=center">
-								<iframe  width="480" height="315" src="https://www.youtube.com/embed/zJlbPF6dgAI" frameborder="0" allowfullscreen></iframe>
+							<div class="col-xs-12 text-center">
+								<iframe class="youtube" width="480" height="315" src="https://www.youtube.com/embed/zJlbPF6dgAI?enablejsapi=1" frameborder="0" allowfullscreen></iframe>
 							</div>
 							<div class="row">
 								<br/>
@@ -901,8 +1012,8 @@
 						</div>
 						<div class="modal-body">
 							<h4 class="text-center"> Unity 3D - iOS - Android - Symbian </h4>
-							<div class="align=center">
-								<iframe src="https://player.vimeo.com/video/95122690" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+							<div class="col-xs-12 text-center">
+								<iframe class="vimeo" src="https://player.vimeo.com/video/95122690?api=1" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 							</div>
 							<div class="row">
 								<br/>
@@ -939,8 +1050,8 @@
 						</div>
 						<div class="modal-body">
 							<h4 class="text-center"> Unity 3D - Windows </h4>
-							<div class="align=center">
-								<iframe src="https://player.vimeo.com/video/86693902" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+							<div class="col-xs-12 text-center">
+								<iframe class="vimeo" src="https://player.vimeo.com/video/86693902?api=1" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 							</div>
 							<div class="row">
 								<br/>
@@ -976,8 +1087,8 @@
 						</div>
 						<div class="modal-body">
 							<h4 class="text-center"> Unity 3D - Windows </h4>
-							<div class="align=center">
-								<iframe src="https://player.vimeo.com/video/116771132" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+							<div class="col-xs-12 text-center">
+								<iframe class="vimeo" src="https://player.vimeo.com/video/116771132?api=1" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 							</div>
 							<div class="row">
 								<br/>
@@ -1058,6 +1169,79 @@
 				</div>
 			</div>
 			<!-- Modal end -->
+
+			<!-- Modal -->
+			<div class="modal fade" id="dove_hero_bar" tabindex="-1" role="dialog" aria-labelledby="project-5-label" aria-hidden="true">
+				<div class="modal-dialog modal-lg">
+					<div class="modal-content">
+						<div class="modal-header">
+						  <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+						  <h4 class="modal-title" id="project-1-label"> Unilever - Street Window </h4>
+						</div>
+						<div class="modal-body">
+							<h4 class="text-center"> OpenFrameworks - Raspberry Pi </h4>
+						  <video width="100%" preload="none" loop><source type="video/mp4" src="images/dove_hero_bar.mp4"></video>
+						  <div class="row">
+								<br/>
+						    <div class="col-md-6">
+									<ul class="list-unstyled">
+							      <li><i class="fa fa-caret-right pr-10 text-colored"></i> Sole Programmer responsible for end to end development </li>
+										<li><i class="fa fa-caret-right pr-10 text-colored"></i> Created a custom carousel control with modifiable configurations for smooth interactions on large touch screens </li>
+									</ul>
+						    </div>
+						    <div class="col-md-6">
+									<ul class="list-unstyled">
+										<li><i class="fa fa-caret-right pr-10 text-colored"></i> Created a After Effects to Unity workflow for artist driven complex animations </li>
+										<li><i class="fa fa-caret-right pr-10 text-colored"></i> Developed entire project in 3 weeks </li>
+									</ul>
+						    </div>
+						  </div>
+						</div>
+						<div class="modal-footer">
+						  <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Close</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Modal end -->
+
+			<!-- Modal -->
+			<div class="modal fade" id="accenture_grabber" tabindex="-1" role="dialog" aria-labelledby="project-10-label" aria-hidden="true">
+				<div class="modal-dialog modal-lg">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+							<h4 class="modal-title" id="project-10-label">Project Title</h4>
+						</div>
+						<div class="modal-body">
+							<h4 class="text-center"> Android (Tablet) - JS (Mobile Website) </h4>
+							<div class="col-xs-12 text-center">
+								<iframe class="vimeo" src="https://player.vimeo.com/video/134706827?api=1" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+							</div>
+							<div class="row">
+								<br/>
+								<div class="col-md-6">
+									<ul class="list-unstyled">
+										<li><i class="fa fa-caret-right pr-10 text-colored"></i> Sole Programmer responsible for end to end development </li>
+										<li><i class="fa fa-caret-right pr-10 text-colored"></i> Created a custom carousel control with modifiable configurations for smooth interactions on large touch screens </li>
+									</ul>
+								</div>
+								<div class="col-md-6">
+									<ul class="list-unstyled">
+										<li><i class="fa fa-caret-right pr-10 text-colored"></i> Created a After Effects to Unity workflow for artist driven complex animations </li>
+										<li><i class="fa fa-caret-right pr-10 text-colored"></i> Developed entire project in 3 weeks </li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Close</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Modal end -->
+
 		</div>
 		<!-- Portolio modals end -->
 
@@ -1164,8 +1348,6 @@
 		<script type="text/javascript">
 			$('.isotope-container').masonry({ isFitWidth: true });
 		</script>
-
-
 
 		<!-- Custom Scripts -->
 		<script type="text/javascript" src="js/custom.js"></script>
