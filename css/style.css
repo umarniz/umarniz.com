@@ -79,6 +79,9 @@ a:active {
 .large {
 	font-size: 18px;
 }
+.verylarge {
+	font-size: 24px;
+}
 img {
 	display: block;
 	max-width: 100%;
@@ -647,7 +650,7 @@ textarea {
 	margin: 0 auto;
 }
 .isotope-item {
-	max-width: 380px;
+	max-width: 20%;
 }
 .isotope-item .btn-default {
 	color: #999999;
@@ -662,9 +665,11 @@ textarea {
 	}
 }
 
+.gutter-sizer {
+	width: 4%;
+}
 
 /* ---- grid ---- */
-
 .grid {
   background: #DDD;
   max-width: 1200px;
@@ -690,8 +695,6 @@ textarea {
 
 .grid-item--width2 { width: 200px; }
 .grid-item--height2 { height: 200px; }
-
-
 
 /* Images Overlay
 ----------------------------------------------------------------------------- */
@@ -881,4 +884,8 @@ textarea {
 	background-size: contain;
 	background-position: center;
 	background-repeat: no-repeat;
+}
+
+.circular-image {
+  border-radius:  50%;
 }
