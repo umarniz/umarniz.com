@@ -78,6 +78,7 @@ a:active {
 }
 .large {
 	font-size: 18px;
+	margin: 0 0 0 0;
 }
 .verylarge {
 	font-size: 24px;
@@ -399,7 +400,7 @@ blockquote {
 	padding: 8px 20px;
 	border: 1px solid #cacaca;
 	color: #666666;
-	font-size: 12px;
+	font-size: 16px;
 	text-transform: uppercase;
 	font-weight: 300;
 }
@@ -651,6 +652,7 @@ textarea {
 }
 .isotope-item {
 	max-width: 20%;
+	z-index: 10;
 }
 .isotope-item .btn-default {
 	color: #999999;
