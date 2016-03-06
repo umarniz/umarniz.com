@@ -199,7 +199,6 @@ blockquote {
 .default-bg a,
 .translucent-bg a {
 	color: #ffffff;
-	text-decoration: underline;
 }
 .default-bg a:hover,
 .translucent-bg a:hover {
@@ -212,28 +211,28 @@ blockquote {
 	background-size: cover !important;
 	background-position: 50% 0;
 	background-repeat: no-repeat;
-	z-index: 1;
+	z-index: 0;
 	position: relative;
 }
 .translucent-bg .translucent-bg {
 	margin-top: 80px;
-	z-index: 3;
+	z-index: -1;
 }
 .translucent-bg:after {
 	content: "";
 	position: absolute;
 	top: 0;
 	left: 0;
-	z-index: 2;
+	z-index: -2;
 	width: 100%;
 	height: 100%;
-	background-color: rgba(0, 0, 0, 0.7);
+	background-color: rgba(0, 0, 0, 0.9);
 }
 .translucent-bg.blue:after {
 	background-color: rgba(85, 172, 238, 0.7);
 }
 .translucent-bg .container {
-	z-index: 3;
+	z-index: -1;
 	position: relative;
 }
 .bg-image-1 {
@@ -399,7 +398,7 @@ blockquote {
 	border-radius: 0;
 	padding: 8px 20px;
 	border: 1px solid #cacaca;
-	color: #666666;
+	color: #ffffff;
 	font-size: 16px;
 	text-transform: uppercase;
 	font-weight: 300;
@@ -652,7 +651,6 @@ textarea {
 }
 .isotope-item {
 	max-width: 20%;
-	z-index: 10;
 }
 .isotope-item .btn-default {
 	color: #999999;
