@@ -609,6 +609,12 @@ textarea {
 .social-links li.linkedin a:hover {
 	color: #0976b4;
 }
+.social-links li.medium a:hover {
+	color: #0976b4;
+}
+.social-links li.github a:hover {
+	color: #0976b4;
+}
 .social-links li.googleplus a:hover {
 	color: #dd4b39;
 }

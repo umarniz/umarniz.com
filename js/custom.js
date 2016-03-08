@@ -197,3 +197,13 @@ function submitContactForm() {
        }
    });
 }
+
+$( document ).ready(function() {
+    var hash = location.hash;
+
+    if (hash) {
+      var hashID = hash.substr(1);
+
+        $('#' + hashID).modal('show');
+    }
+});
