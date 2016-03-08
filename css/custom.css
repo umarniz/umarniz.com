@@ -8,6 +8,26 @@ License: Creative Commons Attribution 3.0 License (https://creativecommons.org/l
 File Description: Place here your custom CSS styles
 */
 
+.contact-thankyou {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+    border-radius:25px;
+    background: #43AD11;
+    padding: 20px;
+}
+
+.contact-thankyou-text {
+    display: inline-block;
+    vertical-align: middle;
+    color: #ffffff;
+}
+
+
+.hidden {
+  display:none
+}
+
 .about-links-even {
   background-color: grey;
 }

@@ -3,6 +3,7 @@
 */
 
  var $loading = $('.spinner').hide();
+ /*
  $(document)
  .ajaxStart(function () {
    $loading.show();
@@ -10,6 +11,7 @@
  .ajaxStop(function () {
    $loading.hide();
  });
+*/
 
 var Categories = {
     MobileApp:   {id: "mobile-apps",   name:"Mobile Apps"},
@@ -36,7 +38,7 @@ var Projects = [
   { title:"Circuit Valencia",               id:"circuit_valencia", categories: [Categories.VR, Categories.Unity] },
   { title:"Death Mile",                     id:"death_mile", categories: [Categories.MobileGame, Categories.Unity] },
   { title:"BLAZ3D",                         id:"blaz3d", categories: [Categories.MobileGame] },
-  { title:"Slash UX",                       id:"portfolio-1", categories: [Categories.Product] }
+  { title:"Slash UX",                       id:"slashux", categories: [Categories.Product] }
 ];
 
 // Fill category nodes
@@ -85,6 +87,14 @@ $('body').on("show.bs.modal", function(e) {
       if (body.find('video')[0] != null) {
         body.find('video')[0].play();
       }
+
+      // Asynchrous load images in carousel
+      var carousel = body.find('.carousel-inner');
+      if (carousel) {
+        carousel.find(".item").find("img").each(function(numb,val) {
+            $(this).attr('src', $(this).attr('data-img-src'));
+        });
+      }
   });
 
 $('body').on('hidden.bs.modal', '.modal', function () {
@@ -128,12 +138,13 @@ $('.carousel').each(function() {
 
   console.log("Ratop - " + ratio);
 
-  $(this).find('.carousel .item').each(function() {
+/*  $(this).find('.carousel .item').each(function() {
     console.log("Setting Carousel");
+    $(this).width('300px');
    $(this).height(0);
    $(this).css('padding-top', ratio);
    $(this).addClass('full-screen');
- });
+ });*/
 
  var $item = $(this).find('.item');
  var $numberofSlides = $(this).find('.item').length;
@@ -166,3 +177,23 @@ $('.carousel').each(function() {
     pause: "true"
   });
 });
+
+
+function submitContactForm() {
+  console.log("Started AJAX. " +  $('#footer-form').serialize());
+  $.ajax({
+       type: 'POST',
+       url: 'https://fwdform.herokuapp.com/user/12aff15f-30f4-47d6-a282-0c6cea04923c',
+       data: $('#footer-form').serialize(),
+       success: function(response) {
+         console.log("Successfully finished AJAX");
+        $('#footer-form').addClass('hidden');
+        $('form-success').removeClass('hidden');
+       },
+       error: function(response) {
+         console.log("Failed " + response);
+         $('#footer-form').addClass('hidden');
+         $('#form-success').removeClass('hidden');
+       }
+   });
+}
