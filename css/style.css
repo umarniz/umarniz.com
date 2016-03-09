@@ -76,6 +76,10 @@ a:focus,
 a:active {
 	outline: none;
 }
+.normal {
+	font-size: 16px;
+	margin: 0 0 0 0;
+}
 .large {
 	font-size: 18px;
 	margin: 0 0 0 0;

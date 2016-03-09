@@ -23,6 +23,12 @@ File Description: Place here your custom CSS styles
     color: #ffffff;
 }
 
+.padded-modal {
+  position: relative;
+  padding-right: 30px;
+  padding-left: 30px;
+}
+
 
 .hidden {
   display:none
