@@ -28,6 +28,7 @@ var Projects = [
   { title:"ABC - Future of VR",             id:"abc_vr_demo", categories: [Categories.VR] },
   { title:"Accenture Grabber",              id:"accenture_grabber", categories: [Categories.MobileApp] },
   { title:"Smart Guide",                    id:"smart_guide", categories: [Categories.MobileApp] },
+  { title:"Heineken - Spinoff",             id:"heineken_spinoff", categories: [Categories.MobileApp] },
   { title:"Unilever - Interactive Table",   id:"interactive_table", categories: [Categories.Unity] },
   { title:"Unilever - Street Window",       id:"street_window", categories: [Categories.Unity] },
   { title:"Unilever - Aisle Leader",        id:"aisle_leader", categories: [Categories.Unity] },
@@ -81,8 +82,23 @@ for (var i=0;i<Projects.length;i++) {
 }
 
 $('body').on("show.bs.modal", function(e) {
+      console.log("Show Modal");
+
       var link = $(e.relatedTarget);
-      var body = $(this).find(link.attr('data-target')).find(".modal-body");
+      var modalLink = null;
+
+      if (link.length == 0) {
+        console.log("No link!");
+
+        modalLink = $(location.hash);
+      } else {
+        modalLink = $(this).find(link.attr('data-target'));
+      }
+
+      console.log(link.get());
+
+      var body = modalLink.find(".modal-body");
+      console.log($(this).get());
 
       if (body.find('video')[0] != null) {
         body.find('video')[0].play();
@@ -91,7 +107,11 @@ $('body').on("show.bs.modal", function(e) {
       // Asynchrous load images in carousel
       var carousel = body.find('.carousel-inner');
       if (carousel) {
+        console.log(carousel);
+        console.log(carousel.find(".item"));
+        console.log("Found carousel. " + carousel.length + " " + carousel.find(".item").length);
         carousel.find(".item").find("img").each(function(numb,val) {
+          console.log("Setting image " + $(this).attr('data-img-src'));
             $(this).attr('src', $(this).attr('data-img-src'));
         });
       }
@@ -124,8 +144,6 @@ $('body').on('hidden.bs.modal', '.modal', function () {
 $('.carousel').each(function() {
   var carouselID = $(this).attr('id');
 
-  console.log("Carousel - " + carouselID );
-
   var ratio = '56.25%';
 
   if (carouselID == 'freezer_carousel') {
@@ -134,9 +152,9 @@ $('.carousel').each(function() {
     ratio = '56.34%';
   } else if (carouselID == 'smartguide_carousel') {
     ratio = '56.91%';
+  } else if (carouselID == 'heineken_carousel') {
+    ratio = '57.2%'
   }
-
-  console.log("Ratop - " + ratio);
 
 /*  $(this).find('.carousel .item').each(function() {
     console.log("Setting Carousel");
@@ -198,12 +216,11 @@ function submitContactForm() {
    });
 }
 
-$( document ).ready(function() {
+$(document).ready(function() {
     var hash = location.hash;
 
     if (hash) {
-      var hashID = hash.substr(1);
-
+        var hashID = hash.substr(1);
         $('#' + hashID).modal('show');
     }
 });
