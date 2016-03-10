@@ -659,9 +659,11 @@ textarea {
 	overflow: hidden;
 	text-align: center;
 	margin: 0 auto;
+	margin-right: auto;
+	margin-left: auto;
 }
 .isotope-item {
-	max-width: 500px;
+	max-width: 400px;
 }
 .isotope-item .btn-default {
 	color: #999999;
