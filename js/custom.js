@@ -82,23 +82,25 @@ for (var i=0;i<Projects.length;i++) {
 }
 
 $('body').on("show.bs.modal", function(e) {
-      console.log("Show Modal");
 
       var link = $(e.relatedTarget);
       var modalLink = null;
 
-      if (link.length == 0) {
-        console.log("No link!");
+      var trackingName = null;
 
+      if (link.length == 0) {
+        trackingName = location.hash;
         modalLink = $(location.hash);
       } else {
         modalLink = $(this).find(link.attr('data-target'));
+        trackingName = link.attr('data-target')
       }
 
-      console.log(link.get());
+      // ga('send', 'pageview', {
+      //  'page': trackingName
+      // });
 
       var body = modalLink.find(".modal-body");
-      console.log($(this).get());
 
       if (body.find('video')[0] != null) {
         body.find('video')[0].play();
@@ -107,14 +109,16 @@ $('body').on("show.bs.modal", function(e) {
       // Asynchrous load images in carousel
       var carousel = body.find('.carousel-inner');
       if (carousel) {
-        console.log(carousel);
-        console.log(carousel.find(".item"));
-        console.log("Found carousel. " + carousel.length + " " + carousel.find(".item").length);
         carousel.find(".item").find("img").each(function(numb,val) {
-          console.log("Setting image " + $(this).attr('data-img-src'));
             $(this).attr('src', $(this).attr('data-img-src'));
         });
       }
+      
+      // Asynchrously load iframes
+      var iframes = $('iframe');
+      iframes.attr('src', function() {
+          return $(this).data('src');
+      });
   });
 
 $('body').on('hidden.bs.modal', '.modal', function () {
@@ -195,26 +199,6 @@ $('.carousel').each(function() {
     pause: "true"
   });
 });
-
-
-function submitContactForm() {
-  console.log("Started AJAX. " +  $('#footer-form').serialize());
-  $.ajax({
-       type: 'POST',
-       url: 'https://fwdform.herokuapp.com/user/12aff15f-30f4-47d6-a282-0c6cea04923c',
-       data: $('#footer-form').serialize(),
-       success: function(response) {
-         console.log("Successfully finished AJAX");
-        $('#footer-form').addClass('hidden');
-        $('form-success').removeClass('hidden');
-       },
-       error: function(response) {
-         console.log("Failed " + response);
-         $('#footer-form').addClass('hidden');
-         $('#form-success').removeClass('hidden');
-       }
-   });
-}
 
 $(document).ready(function() {
     var hash = location.hash;
