@@ -49,7 +49,7 @@ var Projects = [
 var catContainer = document.getElementById("category_container");
 for (var cat in Categories) {
   var node = document.createElement('li');
-  node.innerHTML = "<a data-filter=\"." + Categories[cat].id + "\">" + Categories[cat].name + "</a>";
+  node.innerHTML = "<a href=\"#\" data-filter=\"." + Categories[cat].id + "\">" + Categories[cat].name + "</a>";
   catContainer.appendChild(node);
   // console.log(node);
 }
