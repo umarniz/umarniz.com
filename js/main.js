@@ -2,7 +2,10 @@
   JS for umarniz.com
 */
 
- var $loading = $('.spinner').hide();
+var jquery_backstretch = require('../plugins/jquery.backstretch.min')
+var jquery_appear = require('../plugins/jquery.appear')
+
+var $loading = $('.spinner').hide();
  /*
  $(document)
  .ajaxStart(function () {
@@ -208,3 +211,6 @@ $(document).ready(function() {
         $('#' + hashID).modal('show');
     }
 });
+
+// Fix for masonry
+$('.isotope-container').masonry({ isFitWidth: true });
