@@ -5,7 +5,7 @@
 var jquery_backstretch = require('../plugins/jquery.backstretch.min')
 var jquery_appear = require('../plugins/jquery.appear')
 
-var $loading = $('.spinner').hide();
+// var $loading = $('.spinner').hide();
  /*
  $(document)
  .ajaxStart(function () {
@@ -61,8 +61,6 @@ for (var i=0;i<Projects.length;i++) {
   var cProj = Projects[i];
 
   var div = document.createElement('div');
-
-  div.setAttribute('id', 'test');
 
   var className = "isotope-item";
   for (var cat in cProj.categories) {
