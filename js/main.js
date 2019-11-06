@@ -69,7 +69,8 @@ for (var i=0;i<Projects.length;i++) {
 
   div.setAttribute("class", className);
 
-  div.innerHTML = "<div class=\"image-box\"><div class=\"overlay-container\"><img src=\"images/" + cProj.id + ".jpg" + "\" alt=\"\"><a class=\"overlay\" data-toggle=\"modal\" data-target=\"#" + cProj.id + "\"><div class=\"bottom-text\"><span>" + cProj.title + "</span></div></a></div></div>"
+  imagePath = "images/" + cProj.id 
+  div.innerHTML = "<div class=\"image-box\"><div class=\"overlay-container\"><picture><source type=\"image/webp\" srcset=\"" + imagePath + ".webp\"><source type=\"image/jpeg\" srcset=\"" + imagePath + ".jpg\"><img src=\"" + imagePath + ".jpg\" alt=\"\"></picture><a class=\"overlay\" data-toggle=\"modal\" data-target=\"#" + cProj.id + "\"><div class=\"bottom-text\"><span>" + cProj.title + "</span></div></a></div></div>"
 
   var modalContent = $('#' + cProj.id)
   if  (modalContent != null) {
