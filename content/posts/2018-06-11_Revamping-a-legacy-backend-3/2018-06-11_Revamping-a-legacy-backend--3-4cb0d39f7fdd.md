@@ -1,0 +1,71 @@
+---
+slug: revamping-a-legacy-back-end-3
+date: 2018-06-11T07:06:01.144Z
+title: "Revamping a legacy backend #3"
+template: "post"
+categories:
+  - NiceDay
+tags: [DevOps,Infrastructure,Legacy Backend]
+series: "Revamping a legacy backend"
+---
+
+**Going to Production**
+
+<figure>
+
+![A large amounts of duplicate cookies coming out of an oven](./revamping-a-legacy-back-end-3-0.jpeg)
+
+<figcaption>Cookie Production Line (Source: Unknown)</figcaption></figure>
+
+With an [infrastructure as code](https://hackernoon.com/revamping-a-legacy-backend-1-1429a4ce77cb) for our server provisioning and a [containerized environment for our APIs](https://hackernoon.com/revamping-a-legacy-backend-2-56d6c98df1f3) we are ready to migrate our production stack to the new container based setup. In this article I will explain our approach to production deployment and how we are ensuring high up-time of our legacy stack with minimal support.
+
+Having tested our staging environment to be functional and being used for our deployments, we decided to do the final switch to production while minimizing down time.
+
+Before we do the actual migration, we need to make sure we are alerted as soon as services go down or face any hiccups.
+
+**Monitoring and Alerting**
+
+For monitoring system health we have already been using [Prometheus](https://prometheus.io/) for our existing stack. After deploying Rancher we added some metrics from Rancher to our Prometheus stack to ensure we could monitor service health from Prometheus.
+
+Secondly we added alerts to our Prometheus stack by using [Alert Manager](https://prometheus.io/docs/alerting/alertmanager/). This allows us to create alerts based on different thresholds and operations on metrics collected by Prometheus. With each alert, we connect a severity rating ranging from Low (Disk Space > 80%, CPU usage high on staging servers, etc) to Critical (Cluster down, Rancher Service down, etc).
+
+These alerts are fed into our incident management tool, [OpsGenie](https://www.opsgenie.com/) where we have an on-call schedule for the back-end team to ensure all incidents are resolved in a timely manner. This process has allowed us to avoid problems before they occur by reacting to potential upcoming issues before our users are affected and in an unfortunate scenario of a critical failure to be alerted the instance the service fails.
+
+<figure>
+
+![A cat pressing a big red button](./revamping-a-legacy-back-end-3-1.gif)
+
+<figcaption><b>Time to deploy!</b></figcaption></figure>
+
+Now that we have monitoring and alerting setup, we are ready to deploy to production! We initially mirrored all our services to a production rancher environment and ran stress tests for a few days to ensure everything was working as expected. After several days of testing and fine tuning our stack by re-deploying images multiple times a day we found and fixed several problems related to cleaning up dangling images, disk space issues due to oversized logs, etc and were now ready to do the final production switch over.
+
+To ensure minimum downtime, we started by migrating a small amount of our traffic to one of the rancher servers from our DNS. After a day of successful production traffic handled by the Rancher cluster we decided to do the full switch over with load balancing on 3 Rancher agents while still keeping the legacy server running as a backup if things went wrong.
+
+A month of testing with this setup gave us full confidence that our Rancher stack was fully functional and shut down the old server marking completion of this migration!
+
+**Wohoo! Done with the legacy stuff, now we have a successful Docker based stack that should work flawless right?**
+
+Well, almost. Even though now we have multiple fail overs and a well scaled setup, we are still working with legacy applications that were never designed with such a stack in mind.
+
+**Configuration Hell**
+
+In the first 2 months of production deployment, we had multiple incidents all of them primarily coming from incorrect configuration.
+
+Its a well known problem that handling configurations in distributed environments can be quite painful as there are multiple copies of the service running on different servers and they all need to have the same configuration. To solve this, we coupled our application configurations with our server configurations in Ansible and ensured that all configurations have a single source of truth, i.e Ansible.
+
+While this might not the best solution as it requires a strict following of process, i.e never edit configuration files manually on the server and there are better solutions out there e.g [etcd](https://github.com/coreos/etcd) coupled with [confd](https://github.com/kelseyhightower/confd) which can ensure configurations to be in a single place, it was important to identify the root of the problem before jumping into the solution.
+
+The root of our problems were 2 folded:
+
+1.  **Most of our applications loaded configurations from files only on boot-up**
+
+To explain why this is a bad practice for distributed systems, let me run you through a scenario.
+
+Imagine you update all servers with changes to the configuration file from Ansible and re-start all services correctly. The server is running perfectly fine and everything is working as expected with the updated configuration.
+
+Now a week later, someone from the ops team re-runs the Ansible playbook but in doing so, they accidentally run the Ansible playbook from a branch that does not contain the updated configuration file. When they deploy the incorrect configuration file to the server, the services running on this server aren’t affected as they loaded the configuration on boot-up and have the correct configuration in memory.
+
+Now we are in an ugly situation of incorrect configuration on the server, but the correct configuration in memory and hence we are seeing no problems at this moment.
+
+A week later, someone tries to release a new version of the application. At this moment the container has to be recreated with the new image and the incorrect configuration on the server is picked up by the application and the service starts failing.
+  

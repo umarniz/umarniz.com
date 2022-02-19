@@ -1,0 +1,6 @@
+/* Not using google fonts to avoid loading any external sources *//
+
+@font-face {
+    font-family: "Font Name";
+    src: url("../fonts/fontname.woff2");
+}
