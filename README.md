@@ -1,9 +1,8 @@
 # umarniz.com
 
-Umar Nizamani's personal website
+Umar Nizamani's personal website: https://umarniz.com
 
-This website is based on the amazing work by Tania Rascia: https://github.com/taniarascia/taniarascia.com/
-Checkout her website for more inspiration and to learn new things: https://www.taniarascia.com/
+This website is based on the work by Tania Rascia: https://github.com/taniarascia/taniarascia.com/
 
 ## License
 
