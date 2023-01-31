@@ -9,6 +9,12 @@ categories:
 tags: [Personal, Technology, Privacy]
 ---
 
+<figure>
+
+![A horse in space with a rocket flying next to it](./faster_horses_banner_dalle.jpg)
+
+<figcaption>AI generated art using DALL·E 2</figcaption></figure>
+
 There is a popular saying by Henry Ford
 
 >  If I had asked people what they wanted, they would have said faster horses
