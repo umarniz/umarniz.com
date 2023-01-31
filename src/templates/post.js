@@ -67,7 +67,7 @@ export default function PostTemplate({ data, pageContext }) {
         </article>
       </div>
       <Blurb title="Hey, I'm Umar!">
-        <h5> CTO, NiceDay Nederland </h5>
+        <h5> Managing Director, <a href="https://nicedaytherapy.com">NiceDay International</a></h5>
         <p>
           15 years experience building 1-50 people companies.
           Engineer and tinkerer at heart. Love building products.
