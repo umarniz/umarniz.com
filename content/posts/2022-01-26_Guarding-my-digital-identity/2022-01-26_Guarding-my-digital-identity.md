@@ -5,7 +5,6 @@ title: "Guarding my digital identity"
 template: 'post'
 categories:
   - NiceDay
-  - Popular
 tags: [Personal, Technology, Privacy]
 ---
 

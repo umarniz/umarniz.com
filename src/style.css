@@ -310,6 +310,10 @@ blockquote {
 
 blockquote p {
   max-width: 100% !important;
+  /* font-size: 1.5rem; */
+  font-weight: 700;
+  font-style: italic;
+  text-align: center;
 }
 
 blockquote *:last-child {
