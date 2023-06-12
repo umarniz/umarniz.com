@@ -25,7 +25,7 @@ When I am not behind my computer I like to be in the great outdoors and enjoy mo
 
 <figure >
 
-![A high resolution picture from 2019](./2019-high-res.jpg)
+![A high resolution picture from 2023](./2023-umar.png)
 
 </figure>
 
