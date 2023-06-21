@@ -5,7 +5,7 @@ export default [
     id: '2023-dmh-belfast',
     description: 'International Digital Mental Health and Wellbeing Conference, 2023',
     title: 'Responsible AI for mental healthcare',
-    path: '/2023-dme-responsible-ai',
+    path: '/2023-dmh-responsible-ai',
   },
   {
     id: '2023-rewired-london',
