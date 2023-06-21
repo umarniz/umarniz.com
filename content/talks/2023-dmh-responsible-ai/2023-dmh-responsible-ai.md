@@ -7,7 +7,6 @@ event: "International Digital Mental Health and Wellbeing Conference"
 location: "Belfast, Ireland"
 categories:
   - NiceDay
-  - Popular
   - Talks
 tags:
   - DigitalHealth

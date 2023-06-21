@@ -18,7 +18,7 @@ export default function BlogIndex({ data, ...props }) {
       <SEO customDescription="Articles, tutorials, snippets, musings, and everything else." />
       <header>
         <div className="container">
-          <h1>Blog.</h1>
+          <h1>Blog</h1>
           <p className="subtitle">
             Posts, tutorials, snippets, musings, notes, and everything else. The
             archive of everything I've written.

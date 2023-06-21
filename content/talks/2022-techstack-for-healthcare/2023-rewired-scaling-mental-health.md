@@ -7,7 +7,6 @@ event: "Techies in health"
 location: "Online"
 categories:
   - NiceDay
-  - Popular
   - Talks
 tags:
   - DigitalHealth
