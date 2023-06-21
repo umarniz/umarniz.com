@@ -9,15 +9,17 @@ import config from '../utils/config'
 
 export default function PageTemplate({ data }) {
   const post = data.mdx
-  const { tags, categories, cardImage, title, description, date, role } = post.frontmatter
+  const { tags, categories, cardImage, title, description, date, role, event, location } = post.frontmatter
 
   const postDate = new Date(post.frontmatter.date)
 
   const formattedDate = postDate.toLocaleString('en-US', { month: 'short', year:'numeric'})
 
-  var isProjectPage = false
+  var postType = 'Blog'
   if (categories && categories.includes('Projects')) {
-    isProjectPage = true
+    postType = 'Project'
+  } else if (categories && categories.includes('Talks')) {
+    postType = 'Talk'
   }
 
   return (
@@ -31,8 +33,11 @@ export default function PageTemplate({ data }) {
       <header>
         <div className="container justify-center">
           <h1>{post.frontmatter.title}</h1>
-          { isProjectPage &&
+          { postType == 'Project' &&
             <p className="smallSubtitle">{formattedDate} | {post.frontmatter.role}</p>
+          }
+          { postType == 'Talk' &&
+            <p className="smallSubtitle">{formattedDate} | {post.frontmatter.location}</p>
           }
         </div>
       </header>
@@ -52,6 +57,8 @@ export const pageQuery = graphql`
         description
         date
         role
+        event
+        location
         categories
         cardImage {
           childImageSharp {
