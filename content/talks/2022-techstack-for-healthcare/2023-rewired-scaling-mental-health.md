@@ -3,6 +3,7 @@ slug: 2022-techstack-for-healthcare
 date: 2022-01-27
 title: "Techstack for Healthcare"
 template: "page"
+cardImage: "./2022-techstack-for-healthcare.jpg"
 event: "Techies in health" 
 location: "Online"
 categories:

@@ -8,6 +8,8 @@ import SEO from '../components/SEO'
 import { getSimplifiedPosts } from '../utils/helpers'
 import config from '../utils/config'
 
+import TalkTiles from '../components/TalkTiles'
+
 export default function TalksIndex({ data, ...props }) {
   const talks = data.allMdx.edges
   const simplifiedPosts = useMemo(() => getSimplifiedPosts(talks), [talks])
@@ -16,19 +18,22 @@ export default function TalksIndex({ data, ...props }) {
     <Layout>
       <Helmet title={`Talks | ${config.siteTitle}`} />
       <SEO customDescription="Speaking at conferences. Keynotes, Lectures, meetups and everything in between." />
+      <div className="container page">
+        <div className='full-width-container'>
       <header>
-        <div className="container">
           <h1>Talks.</h1>
           <p className="subtitle">
             A collection of talks I have given.
           </p>
-        </div>
       </header>
-      <section>
+      <TalkTiles data={simplifiedPosts} />
+      {/* <section>
         <div className="container">
           <Search posts={simplifiedPosts} {...props} />
         </div>
-      </section>
+      </section> */}
+      </div>
+      </div>
     </Layout>
   )
 }
@@ -51,6 +56,14 @@ export const projectQuery = graphql`
             event
             location
             categories
+            cardImage {
+                childImageSharp {
+                  gatsbyImageData(
+                    width: 1200
+                    placeholder: BLURRED
+                  )
+                }
+              }
           }
         }
       }
