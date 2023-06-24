@@ -26,19 +26,19 @@ export default function TalksIndex({ data, ...props }) {
             A collection of talks I have given.
           </p>
       </header>
-      <TalkTiles data={simplifiedPosts} />
-      {/* <section>
+      <TalkTiles data={simplifiedPosts} {...props} />
+      <section>
         <div className="container">
           <Search posts={simplifiedPosts} {...props} />
         </div>
-      </section> */}
+      </section>
       </div>
       </div>
     </Layout>
   )
 }
 
-export const projectQuery = graphql`
+export const pageQuery = graphql`
   query TalksQuery {
     allMdx(
       sort: { fields: [frontmatter___date], order: DESC }

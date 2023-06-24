@@ -44,10 +44,10 @@ export default function Posts({ data, showYears }) {
     postsByYear[year] = [...(postsByYear[year] || []), post]
   })
 
-  const years = useMemo(() => Object.keys(postsByYear).reverse(), [postsByYear])
-
+  const postYears = useMemo(() => Object.keys(postsByYear).reverse(), [postsByYear])
+  
   if (showYears) {
-    return years.map((year) => (
+    return postYears.map((year) => (
       <section key={year}>
         <h2>{year}</h2>
         <div className="posts">

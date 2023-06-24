@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'gatsby'
 import { GatsbyImage } from "gatsby-plugin-image"
-export default function TalkCard({ link, title, children, bg }) {
+export default function TalkCard({ link, title, event, location, children, bg }) {
 
     const imageStyle = {
         borderRadius: '1rem',
@@ -28,6 +28,10 @@ export default function TalkCard({ link, title, children, bg }) {
     }
 
     return (
+        <section>
+            {/* <div className="project-card-title" style={titleStyle}>{title}</div> */}
+            <h3>{title}</h3>
+            <h5>{event} - {location}</h5>
         <Link to={link} className="project-card">
             <GatsbyImage
                 placeholder="blurred"
@@ -36,8 +40,9 @@ export default function TalkCard({ link, title, children, bg }) {
                 style={imageStyle}
                 alt={title}
             />
-            <div className="project-card-title" style={titleStyle}>{title}</div>
+            {/* <div className="project-card-title" style={titleStyle}>{title}</div> */}
             <div className="project-card-description" style={descriptionStyle}>{children}</div>
         </Link>
+        </section>
     )
 }
