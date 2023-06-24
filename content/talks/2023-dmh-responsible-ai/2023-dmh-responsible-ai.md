@@ -4,8 +4,8 @@ date: 2023-06-23
 title: "Responsible AI for Mental Health"
 template: "page"
 cardImage: "./2023-dmh-responsible-ai.jpg"
-event: "International Digital Mental Health and Wellbeing Conference" 
-location: "Belfast, Ireland"
+event: "Digital Mental Health and Wellbeing Conference"
+location: "Ulster University, Belfast, Ireland"
 categories:
   - NiceDay
   - Popular

@@ -21,17 +21,12 @@ export default function TalksIndex({ data, ...props }) {
       <div className="container page">
         <div className='full-width-container'>
       <header>
-          <h1>Talks.</h1>
+          <h1>Talks</h1>
           <p className="subtitle">
             A collection of talks I have given.
           </p>
       </header>
       <TalkTiles data={simplifiedPosts} {...props} />
-      <section>
-        <div className="container">
-          <Search posts={simplifiedPosts} {...props} />
-        </div>
-      </section>
       </div>
       </div>
     </Layout>

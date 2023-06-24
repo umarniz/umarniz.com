@@ -45,7 +45,7 @@ export default function ProjectsIndex({data}) {
   )
 }
 
-export const projectQuery = graphql`
+export const pageQuery = graphql`
   query ProjectsQuery {
     allMdx(
       sort: { fields: [frontmatter___date], order: DESC }

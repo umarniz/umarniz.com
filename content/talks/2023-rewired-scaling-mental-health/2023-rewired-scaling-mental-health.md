@@ -4,7 +4,7 @@ date: 2023-03-14
 title: "Scaling Evidence Driven Mental Health"
 template: "page"
 cardImage: "./2023-rewired-scaling-mental-health.jpg"
-event: "Rewired" 
+event: "Digital Health Rewired"
 location: "London, UK"
 categories:
   - NiceDay
