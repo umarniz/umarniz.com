@@ -4,23 +4,34 @@ import { GatsbyImage } from "gatsby-plugin-image"
 export default function TalkCard({ link, title, event, location, children, bg }) {
 
     const imageStyle = {
-        borderRadius: '1rem',
         height: '100%',
         minHeight: '250px',
-        align: "center",
-        // maskImage: 'linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 25%, rgba(0,0,0,1) 100%)',
-        // maskImage: 'linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%)',
-        // webkitMaskImage: 'linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%)',
+        objectFit: 'contain',
+        zIndex: 100,
+        padding: 0,
+        margin: 0,
+        display: "block",
+        position: "absolute",
+        border: "2px solid rgba(0, 0, 0, .5)"
+    }
+
+    const imageBGStyle = {
+        padding: 0,
+        margin: 0,
+        height: '100%',
+        minHeight: '250px',
+        objectFit: 'fill',
+        zIndex: 2,
+        border: "2px solid rgba(0, 0, 0, .5)"
     }
 
     const titleStyle = {
         letterSpacing: "-0.05rem",
         fontSize: "1.8rem",
-        // fontWeight: 100,
         textDecoration: "",
         paddingBottom: "0.5rem",
         marginBottom: "0.5rem",
-        // margin: "1.0rem",
+        minHeight: "3.0rem"
     }
 
     const eventTextStyle = {
@@ -36,15 +47,14 @@ export default function TalkCard({ link, title, event, location, children, bg })
         margin: 0,
         fontSize: "1.2rem",
         fontWeight: 200,
-        // letterSpacing: "-0.05rem",
     }
-
 
     const sectionStyle = {
         margin: 0,
         padding: 0,
         align: "center",
         textAlign: "center",
+        width: "100%",
     }
 
     return (
@@ -52,7 +62,14 @@ export default function TalkCard({ link, title, event, location, children, bg })
             <h1 style={titleStyle}>{title}</h1>
             <h5 style={eventTextStyle}>{event}</h5>
             <h5 style={locationTextStyle}>📍{location}</h5>
-            <Link to={link} className="project-card">
+            <Link to={link} className="talk-card">
+                <GatsbyImage
+                    placeholder="blurred"
+                    image={bg.childImageSharp.gatsbyImageData}
+                    imgStyle={imageBGStyle}
+                    style={imageBGStyle}
+                    alt={title}
+                />
                 <GatsbyImage
                     placeholder="blurred"
                     image={bg.childImageSharp.gatsbyImageData}

@@ -10,8 +10,9 @@ import '../style.css'
 import '../new-moon.css'
 
 import VideoPlayer from './mdx/VideoPlayer'
+import SlidesViewer from './mdx/SlidesViewer'
 
-const mdxComponents = {VideoPlayer}
+const mdxComponents = {VideoPlayer, SlidesViewer}
 
 export default function Layout({ children }) {
   return (
