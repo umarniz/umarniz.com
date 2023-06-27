@@ -12,9 +12,15 @@ module.exports = {
     // ===================================================================================
     // Meta
     // ===================================================================================
-
-    'gatsby-plugin-react-helmet',
-    'gatsby-plugin-netlify',
+    {
+      resolve: 'gatsby-plugin-netlify',
+      headers: {
+        "/*": [
+          `Content-Security-Policy: frame-ancestors 'self'`,
+          `X-Frame-Options: SAMEORIGIN`
+        ],
+      },
+    },
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
