@@ -39,6 +39,13 @@ export default function Guides({ data, frontPage, includeTime }) {
                   </div>
                 )}
               </LinkType>
+              <p>{guide.event && (
+                guide.event
+              )}{guide.location && (
+                " | " + guide.location
+              )}{guide.date && (
+                " - " + guide.date
+              )}</p>
               {guide.description && <p>{guide.description}</p>}
             </div>
             <div className="image-section">

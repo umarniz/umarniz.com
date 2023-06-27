@@ -9,6 +9,8 @@ export function getSimplifiedPosts(posts, options = {}) {
     description: post.node.frontmatter.description,
     series: post.node.frontmatter.series,
     cardImage: post.node.frontmatter.cardImage,
+    event: post.node.frontmatter.event,
+    location: post.node.frontmatter.location
   }))
 }
 

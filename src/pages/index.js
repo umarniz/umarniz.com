@@ -10,14 +10,15 @@ import SEO from '../components/SEO'
 import Blurb from '../components/Blurb'
 import { getSimplifiedPosts } from '../utils/helpers'
 import config from '../utils/config'
-import speaking from '../data/speaking'
 
 export default function BlogIndex({ data }) {
   const latest = data.latest.edges
   const projects = data.projects.edges
+  const talks = data.talks.edges
 
   const simplifiedLatest = useMemo(() => getSimplifiedPosts(latest), [latest])
   const simplifiedProjects = useMemo(() => getSimplifiedPosts(projects), [projects])
+  const simplifiedTalks = useMemo(() => getSimplifiedPosts(talks), [talks])
 
   const Section = ({ title, children, viewAllURL, ...props }) => (
     <section {...props}>
@@ -51,8 +52,8 @@ export default function BlogIndex({ data }) {
         <Section title="Projects"  viewAllURL="/projects">
           <Projects data={simplifiedProjects} />
         </Section>
-        <Section title="Speaking">
-          <Guides data={speaking} frontPage />
+        <Section title="Speaking" viewAllURL="/talks">
+          <Guides data={simplifiedTalks} frontPage />
         </Section>
       </div>
     </Layout>
@@ -112,6 +113,36 @@ export const pageQuery = graphql`
           frontmatter {
             date(formatString: "MMMM DD, YYYY")
             title
+            description
+            categories
+            cardImage {
+              childImageSharp {
+                gatsbyImageData(
+                  width: 1200
+                  placeholder: BLURRED
+                )
+              }
+            }
+          }
+        }
+      }
+    }
+    talks: allMdx(
+      limit: 4
+      sort: { fields: [frontmatter___date], order: DESC }
+      filter: { frontmatter: { template: { eq: "page" }, categories: { eq: "Talks"} } }
+    ) {
+      edges {
+        node {
+          id
+          fields {
+            slug
+          }
+          frontmatter {
+            date(formatString: "YYYY")
+            title
+            event
+            location
             description
             categories
             cardImage {
