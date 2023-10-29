@@ -4,7 +4,7 @@ date: 2023-10-29
 title: "Utilising AI and data to provide effective mental health services"
 template: "page"
 cardImage: "./2023-digital-health-ai-data.jpg"
-event: "European Conference on Mental Health"
+event: "Digital Health AI & Data 2023"
 location: "London, UK"
 categories:
   - NiceDay
