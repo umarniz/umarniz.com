@@ -3,6 +3,7 @@ export function getSimplifiedPosts(posts, options = {}) {
     id: post.node.id,
     date: post.node.frontmatter.date,
     slug: post.node.fields.slug,
+    folderPath: post.node.fields.folderPath,
     tags: post.node.frontmatter.tags,
     categories: post.node.frontmatter.categories,
     title: post.node.frontmatter.title,
@@ -10,7 +11,9 @@ export function getSimplifiedPosts(posts, options = {}) {
     series: post.node.frontmatter.series,
     cardImage: post.node.frontmatter.cardImage,
     event: post.node.frontmatter.event,
-    location: post.node.frontmatter.location
+    location: post.node.frontmatter.location,
+    summary: post.node.frontmatter.summary,
+    images: post.node.images,
   }))
 }
 

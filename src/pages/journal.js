@@ -12,6 +12,7 @@ import Journals from '../components/Journals'
 
 export default function JournalIndex({ data, ...props }) {
   const journals = data.allMdx.edges
+  // const photos = data.allFile
   const simplifiedPosts = useMemo(() => getSimplifiedPosts(journals), [journals])
 
   return (
@@ -30,7 +31,9 @@ export default function JournalIndex({ data, ...props }) {
       </header>
         <section>
             <div className="container">
-            <Journals data={simplifiedPosts} showYears />
+              <Journals data={simplifiedPosts} showYears />
+            <div>
+            </div>
             </div>
       </section>
     </div>
@@ -50,12 +53,23 @@ export const pageQuery = graphql`
           id
           fields {
             slug
+            folderPath
           }
           frontmatter {
             date(formatString: "MMMM DD, YYYY")
             title
             tags
             categories
+            summary
+            location
+          }
+          images {
+            childImageSharp {
+                gatsbyImageData(
+                  width: 300
+                  placeholder: BLURRED
+                )
+              }
           }
         }
       }
