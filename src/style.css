@@ -1911,6 +1911,25 @@ figure {
   width: 100%;
 }
 
+.journal-title-location {
+  align-items: right;
+  text-align: right;
+}
+
+.post {
+  margin-bottom: 20px;
+  background-color: #fdfeff;
+  border-style: dashed;
+  border-width: 5px;
+  border: #101010;
+  border-left: #101010;
+  border-left-color: blue;
+}
+
+.journal-row {
+  margin-bottom: 50px;
+}
+
 /* .masonry-layout .gatsby-image-wrapper {
     display: flex;
     align-items: center;

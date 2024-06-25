@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react'
 import { Link } from 'gatsby'
 import { GatsbyImage } from "gatsby-plugin-image"
-
+4
 const Cell = ({ node }) => {
   const date = new Date(node.date)
   const oneMonthAgo = new Date()
@@ -33,15 +33,23 @@ const Cell = ({ node }) => {
 
   return (
     <div className="post" key={node.id}>
+      <div className="journal-row">
       <Link to={node.slug}>
         <div className="post-column">
         <div className="post-row">
-        {formattedDate && <time>{formattedDate}</time>}
 
+        {/* <div className="post-column"> */}
+          
+        {/* </div> */}
         <div className="post-column">
+          <div className="post-row">
+            {formattedDate && <time>{formattedDate}</time>}
+            <h3>{node.location} 🇵🇰</h3>
+          </div>
           {/* <div className="post-row"> */}
-            <h3>{node.title}</h3>
-            <h3>📍{node.location}</h3>
+            {/* <h3>{node.title}</h3> */}
+            
+            <br></br>
           {/* </div> */}
           {/* <div className="post-row"> */}
           <h5>{node.summary}</h5>
@@ -50,6 +58,7 @@ const Cell = ({ node }) => {
         <div className='masonry-layout-parent'>
           <div className="masonry-layout">
             {node.images.slice(0, 4).map(image => (
+
               <GatsbyImage
                 placeholder="blurred"
                 image={image.childImageSharp.gatsbyImageData}
@@ -60,6 +69,7 @@ const Cell = ({ node }) => {
           </div>
         </div>
       </Link>
+      </div>
      </div>
   )
 }
