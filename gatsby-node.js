@@ -7,6 +7,7 @@ const createPages = async ({ graphql, actions }) => {
   const pagePage = path.resolve('./src/templates/page.js')
   const tagPage = path.resolve('./src/templates/tag.js')
   const categoryPage = path.resolve('./src/templates/category.js')
+  const journalPage = path.resolve('./src/templates/journal.js')
 
   const result = await graphql(
     `
@@ -38,6 +39,7 @@ const createPages = async ({ graphql, actions }) => {
   const all = result.data.allMdx.edges
   const posts = all.filter((post) => post.node.frontmatter.template === 'post')
   const pages = all.filter((page) => page.node.frontmatter.template === 'page')
+  const journals = all.filter((journal) => journal.node.frontmatter.template === 'journal')
   const tagSet = new Set()
   const categorySet = new Set()
 
@@ -87,6 +89,20 @@ const createPages = async ({ graphql, actions }) => {
   })
 
   // =====================================================================================
+  // Journals
+  // =====================================================================================
+
+  journals.forEach((journal) => {
+    createPage({
+      path: journal.node.fields.slug,
+      component: journalPage,
+      context: {
+        slug: journal.node.fields.slug,
+      },
+    })
+  })
+
+  // =====================================================================================
   // Tags
   // =====================================================================================
 
@@ -127,6 +143,7 @@ const createNode = ({ node, actions, getNode }) => {
   let slug
   if (node.internal.type === 'Mdx') {
     const fileNode = getNode(node.parent)
+    const folderPath = path.dirname(fileNode.relativePath)
     const parsedFilePath = path.parse(fileNode.relativePath)
 
     if (Object.prototype.hasOwnProperty.call(node.frontmatter, 'slug')) {
@@ -135,16 +152,60 @@ const createNode = ({ node, actions, getNode }) => {
       slug = `/${parsedFilePath.dir}/`
     }
 
+    // Creates directoryName field in the node
     createNodeField({
-      name: 'slug',
       node,
+      name: "folderPath",
+      value: folderPath,
+    })
+
+    // Creates slug field in the node
+    createNodeField({
+      node,
+      name: 'slug',
       value: slug,
     })
-  }
+  } 
+  // else {
+  //   const fileNode = getNode(node.parent)
+
+  //   if (fileNode && fileNode.absolutePath) {
+  //     console.log('Loaded', fileNode.absolutePath)
+  //   }
+  // }
+}
+
+exports.createResolvers = ({ createResolvers }) => {
+  // This resolver automatically adds an 'images' field which contains GatsbyImages inside it from the same folder as the post
+  createResolvers({
+    Mdx: {
+      images: {
+        type: ["File"],
+        resolve(source, args, context, info) {
+          const { folderPath } = source.fields
+
+          console.log('Running resolver for folder path', folderPath)
+          return context.nodeModel.runQuery({
+            query: {
+              filter: {
+                relativeDirectory: { eq: folderPath },
+                extension: {
+                  in: ["jpg", "jpeg", "png"],
+                },
+              }
+            },
+            type: "File",
+            firstOnly: false
+          })
+        }
+      }
+    }
+  })
 }
 
 exports.createPages = createPages
 exports.onCreateNode = createNode
+// exports.createResolvers = createResolvers
 
 // Helpers
 function slugify(str) {

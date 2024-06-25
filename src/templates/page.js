@@ -21,7 +21,7 @@ export default function PageTemplate({ data }) {
   } else if (categories && categories.includes('Talks')) {
     postType = 'Talk'
   }
-
+  
   return (
     <Layout>
       <Helmet

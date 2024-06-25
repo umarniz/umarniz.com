@@ -1892,3 +1892,31 @@ figure {
   max-width: 80%;
   max-height: 600px;
 }
+
+.masonry-layout {
+  display: flex;
+  width: 100%;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-gap: 16px;
+  /* max-width: 500px; */
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.masonry-layout-parent {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+}
+
+/* .masonry-layout .gatsby-image-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+} */
+
+.post-column {
+  width: 100%;
+}

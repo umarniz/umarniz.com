@@ -22,31 +22,42 @@ const Cell = ({ node }) => {
     formattedDate = dateArr.join(' ').slice(0, -1)
   }
 
+  // This variable should create a flex layout in masonry style for all images in node.images
+  const masonryLayoutOfImages = {
+
+  }
+
+  // const masonryLayoutOfImages = {
+
+  // }
+
   return (
     <div className="post" key={node.id}>
       <Link to={node.slug}>
+        <div className="post-column">
         <div className="post-row">
         {formattedDate && <time>{formattedDate}</time>}
 
         <div className="post-column">
-        {/* <div className="post-row"> */}
-          <h3>{node.title}</h3>
-          <h3>{node.location}</h3>
-        {/* </div> */}
-        {/* <div className="post-row"> */}
-        <h5>{node.summary}</h5>
-
-        {node.images.map(image => (
-          <GatsbyImage
-              placeholder="blurred"
-              image={image.childImageSharp.gatsbyImageData}
-              // imgStyle={imageBGStyle}
-              // style={imageBGStyle}
-              alt=""
-              // key={image.id && console.log('Image ID', image.id)}
-          />
-        ))}
+          {/* <div className="post-row"> */}
+            <h3>{node.title}</h3>
+            <h3>📍{node.location}</h3>
+          {/* </div> */}
+          {/* <div className="post-row"> */}
+          <h5>{node.summary}</h5>
         </div>
+        </div>
+        <div className='masonry-layout-parent'>
+          <div className="masonry-layout">
+            {node.images.slice(0, 4).map(image => (
+              <GatsbyImage
+                placeholder="blurred"
+                image={image.childImageSharp.gatsbyImageData}
+                alt=""
+              />
+            ))}
+            </div>
+          </div>
         </div>
       </Link>
      </div>
