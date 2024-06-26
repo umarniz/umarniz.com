@@ -2,7 +2,10 @@ module.exports = {
   globals: {
     __PATH_PREFIX__: true,
   },
-  extends: 'react-app',
+  extends: ['react-app', 'plugin:mdx/recommended'],
+  settings: {
+    'mdx/code-blocks': true,
+  },
   rules: {
     'jsx-a11y/accessible-emoji': 0,
     'jsx-a11y/iframe-has-title': 0,

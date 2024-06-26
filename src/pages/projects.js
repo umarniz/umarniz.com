@@ -48,7 +48,7 @@ export default function ProjectsIndex({data}) {
 export const pageQuery = graphql`
   query ProjectsQuery {
     allMdx(
-      sort: { fields: [frontmatter___date], order: DESC }
+      sort: {frontmatter: {date: DESC}}
       filter: { frontmatter: { template: { eq: "page" }, categories: { eq: "Projects"} } }
     ) {
       edges {

@@ -40,27 +40,27 @@ export default function CategoryTemplate({ data, pageContext }) {
 
 export const pageQuery = graphql`
   query CategoryPage($category: String) {
-    allMdx(
-      sort: { order: DESC, fields: [frontmatter___date] }
-      filter: { frontmatter: { categories: { in: [$category] } } }
-    ) {
-      totalCount
-      edges {
-        node {
-          id
-          fields {
-            slug
-          }
-          frontmatter {
-            title
-            date(formatString: "MMMM DD, YYYY")
-            description
-            tags
-            categories
-            series
-          }
+  allMdx(
+    sort: {frontmatter: {date: DESC}}
+    filter: {frontmatter: {categories: {in: [$category]}}}
+  ) {
+    totalCount
+    edges {
+      node {
+        id
+        fields {
+          slug
+        }
+        frontmatter {
+          title
+          date(formatString: "MMMM DD, YYYY")
+          description
+          tags
+          categories
+          series
         }
       }
     }
   }
+}
 `

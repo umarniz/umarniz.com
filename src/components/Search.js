@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import { useFlexSearch } from 'react-use-flexsearch'
-import * as queryString from 'query-string'
+import queryString from 'query-string'
 
 import Posts from './Posts'
 

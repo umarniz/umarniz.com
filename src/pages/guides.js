@@ -67,7 +67,7 @@ export default function GuidesIndex({ data }) {
 export const pageQuery = graphql`
   query GuidesQuery {
     allMdx(
-      sort: { fields: [frontmatter___date], order: DESC }
+      sort: {frontmatter: {date: DESC}}
       filter: { frontmatter: { categories: { in: "Guides" } } }
     ) {
       edges {

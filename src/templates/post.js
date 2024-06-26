@@ -20,15 +20,15 @@ export default function PostTemplate({ data, pageContext }) {
   return (
     <Layout>
       {cover && (
-        <figure>
+        \<figure>
           <GatsbyImage
             layout="fullWidth"
             placeholder="blurred"
             image={cover.childImageSharp.gatsbyImageData}
             className="full-width-cover"
           />
-          <figcaption>{coverCaption}</figcaption>
-        </figure>
+          \<figcaption>{coverCaption}\</figcaption>
+        \</figure>
         )}
       <Helmet title={`${post.frontmatter.title} | ${config.siteTitle}`} />
       <SEO postPath={post.fields.slug} postNode={post} postSEO />

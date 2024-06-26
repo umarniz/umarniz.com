@@ -39,7 +39,7 @@ export default function TagTemplate({ data, pageContext }) {
 export const pageQuery = graphql`
   query TagPage($tag: String) {
     allMdx(
-      sort: { order: DESC, fields: [frontmatter___date] }
+      sort: {frontmatter: {date: DESC}}
       filter: { frontmatter: { tags: { in: [$tag] } } }
     ) {
       totalCount

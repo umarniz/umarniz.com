@@ -36,7 +36,7 @@ export default function TalksIndex({ data, ...props }) {
 export const pageQuery = graphql`
   query TalksQuery {
     allMdx(
-      sort: { fields: [frontmatter___date], order: DESC }
+      sort: {frontmatter: {date: DESC}}
       filter: { frontmatter: { template: { eq: "page" }, categories: { eq: "Talks"} } }
     ) {
       edges {

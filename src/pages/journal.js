@@ -45,7 +45,7 @@ export default function JournalIndex({ data, ...props }) {
 export const pageQuery = graphql`
   query JournalQuery {
     allMdx(
-      sort: { fields: [frontmatter___date], order: DESC }
+      sort: {frontmatter: {date: DESC}}
       filter: { frontmatter: { template: { eq: "journal" } } }
     ) {
       edges {

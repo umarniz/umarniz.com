@@ -64,7 +64,7 @@ export const pageQuery = graphql`
   query IndexQuery {
     latest: allMdx(
       limit: 5
-      sort: { fields: [frontmatter___date], order: DESC }
+      sort: {frontmatter: {date: DESC}}
       filter: { frontmatter: { template: { eq: "post" } } }
     ) {
       edges {
@@ -83,7 +83,7 @@ export const pageQuery = graphql`
     }
     popular: allMdx(
       limit: 20
-      sort: { fields: [frontmatter___date], order: DESC }
+      sort: {frontmatter: {date: DESC}}
       filter: { frontmatter: { categories: { eq: "Popular" } } }
     ) {
       edges {
@@ -101,7 +101,7 @@ export const pageQuery = graphql`
       }
     }
     projects: allMdx(
-      sort: { fields: [frontmatter___date], order: DESC }
+      sort: {frontmatter: {date: DESC}}
       filter: { frontmatter: { template: { eq: "page" }, categories: { in: ["Projects"], eq: "Featured" } } }
     ) {
       edges {
@@ -129,7 +129,7 @@ export const pageQuery = graphql`
     }
     talks: allMdx(
       limit: 4
-      sort: { fields: [frontmatter___date], order: DESC }
+      sort: {frontmatter: {date: DESC}}
       filter: { frontmatter: { template: { eq: "page" }, categories: { eq: "Talks"} } }
     ) {
       edges {

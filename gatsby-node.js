@@ -12,7 +12,7 @@ const createPages = async ({ graphql, actions }) => {
   const result = await graphql(
     `
       {
-        allMdx(sort: { fields: [frontmatter___date], order: DESC }) {
+        allMdx(sort: {frontmatter: {date: DESC}}) {
           edges {
             node {
               id
@@ -179,10 +179,10 @@ exports.createResolvers = ({ createResolvers }) => {
     Mdx: {
       images: {
         type: ["File"],
-        resolve(source, args, context, info) {
+        async resolve(source, args, context, info) {
           const { folderPath } = source.fields
 
-          return context.nodeModel.runQuery({
+          const {entries, totalCount} = await context.nodeModel.findAll({
             query: {
               filter: {
                 relativeDirectory: { eq: folderPath },
@@ -191,9 +191,10 @@ exports.createResolvers = ({ createResolvers }) => {
                 },
               }
             },
-            type: "File",
-            firstOnly: false
+            type: "File"
           })
+
+          return entries
         }
       }
     }

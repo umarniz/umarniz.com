@@ -37,7 +37,7 @@ export default function BlogIndex({ data, ...props }) {
 export const pageQuery = graphql`
   query BlogQuery {
     allMdx(
-      sort: { fields: [frontmatter___date], order: DESC }
+      sort: {frontmatter: {date: DESC}}
       filter: { frontmatter: { template: { eq: "post" } } }
     ) {
       edges {
