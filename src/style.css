@@ -587,7 +587,7 @@ p.journal-summary {
   color: var(--light-font-color);
   font-size: 1.0rem;
   font-weight: 300;
-  margin-bottom: 0;
+  margin-bottom: 0.2rem;
   line-height: 1.5;
 }
 
