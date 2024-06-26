@@ -62,6 +62,8 @@ export const pageQuery = graphql`
             categories
             summary
             location
+            series
+            distanceFromLastLocationInKM
           }
           images {
             childImageSharp {

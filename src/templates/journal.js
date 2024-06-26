@@ -12,16 +12,14 @@ import config from '../utils/config'
 import { slugify } from '../utils/helpers'
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import Gallery from '@browniebroke/gatsby-image-gallery'
-// import { StaticImage } from '../../node_modules/gatsby-plugin-image/dist/src/index'
 
 export default function JournalTemplate({ data, pageContext }) {
     const post = data.mdx
     
     const images = post.images.map(image => image.childImageSharp)
-    console.log(images)
 
     const { previous, next } = pageContext
-    const { tags, cover, coverCaption, title, description, date } = post.frontmatter
+    const { tags, cover, coverCaption, title, description, date, location } = post.frontmatter
 
     return (
         <Layout>
@@ -38,13 +36,14 @@ export default function JournalTemplate({ data, pageContext }) {
             )}
             <Helmet title={`${post.frontmatter.title} | ${config.siteTitle}`} />
             <SEO postPath={post.fields.slug} postNode={post} postSEO />
-            <div className="container">
+            <div className="container padded-bottom">
                 <article>
                     <header className="article-header">
                         <div className="container">
                             <div className="thumb">
                                 <div>
                                     <h1>{title}</h1>
+                                    {/* <h1>{title}</h1> */}
                                     <div className="post-meta">
                                         <div>
                                             {/* By <Link to="/me">Umar Nizamani</Link> on{' '} */}
@@ -59,31 +58,11 @@ export default function JournalTemplate({ data, pageContext }) {
 
 
                     </header>
-                    {/* <div className='masonry-layout'>
-                        <div>
-                            {post.images.slice(0, 4).map(image => (
-                                <GatsbyImage
-                                    placeholder="blurred"
-                                    image={getImage(image.childImageSharp.thumb)}
-                                    alt=""
-                                />
-                            ))}
-                        </div>
-                    </div> */}
+                  
                     <MDXRenderer className="article-post">{post.body}</MDXRenderer>
 
-                    <Gallery images={images} />
-                    {/* <div className='masonry-layout'>
-                        <div>
-                            {post.images.map(image => (
-                                <GatsbyImage
-                                    placeholder="blurred"
-                                    image={getImage(image.childImageSharp.thumb)}
-                                    alt=""
-                                />
-                            ))}
-                        </div>
-                    </div> */}
+                    <Gallery images={images} imgClass="clickable-image" />
+                    
                     {tags && (
                         <div className="tags">
                             {tags.map((tag) => (
@@ -126,6 +105,8 @@ export const pageQuery = graphql`
             date(formatString: "MMMM DD, YYYY")
             tags
             description
+            location
+            series
             coverCaption
             cover {
                 childImageSharp {
@@ -139,8 +120,8 @@ export const pageQuery = graphql`
         images {
             childImageSharp {
                 thumb: gatsbyImageData(
-                    width: 200
-                    height: 200
+                    width: 300
+                    height: 300
                     placeholder: BLURRED)
                 full: gatsbyImageData(layout: FULL_WIDTH)
             }

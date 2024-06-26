@@ -9,6 +9,7 @@ export function getSimplifiedPosts(posts, options = {}) {
     title: post.node.frontmatter.title,
     description: post.node.frontmatter.description,
     series: post.node.frontmatter.series,
+    distanceFromLastLocationInKM: post.node.frontmatter.distanceFromLastLocationInKM,
     cardImage: post.node.frontmatter.cardImage,
     event: post.node.frontmatter.event,
     location: post.node.frontmatter.location,

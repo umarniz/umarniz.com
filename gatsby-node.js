@@ -92,12 +92,17 @@ const createPages = async ({ graphql, actions }) => {
   // Journals
   // =====================================================================================
 
-  journals.forEach((journal) => {
+  journals.forEach((journal, i) => {
+    const previous = i === journals.length - 1 ? null : journals[i + 1].node
+    const next = i === 0 ? null : journals[i - 1].node
+
     createPage({
       path: journal.node.fields.slug,
       component: journalPage,
       context: {
         slug: journal.node.fields.slug,
+        previous,
+        next,
       },
     })
   })
@@ -166,13 +171,6 @@ const createNode = ({ node, actions, getNode }) => {
       value: slug,
     })
   } 
-  // else {
-  //   const fileNode = getNode(node.parent)
-
-  //   if (fileNode && fileNode.absolutePath) {
-  //     console.log('Loaded', fileNode.absolutePath)
-  //   }
-  // }
 }
 
 exports.createResolvers = ({ createResolvers }) => {
@@ -184,7 +182,6 @@ exports.createResolvers = ({ createResolvers }) => {
         resolve(source, args, context, info) {
           const { folderPath } = source.fields
 
-          console.log('Running resolver for folder path', folderPath)
           return context.nodeModel.runQuery({
             query: {
               filter: {
@@ -205,7 +202,6 @@ exports.createResolvers = ({ createResolvers }) => {
 
 exports.createPages = createPages
 exports.onCreateNode = createNode
-// exports.createResolvers = createResolvers
 
 // Helpers
 function slugify(str) {

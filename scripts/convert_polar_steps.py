@@ -27,7 +27,7 @@ try:
 except e:
     print('Error', e)
 
-def create_markdown_file(step_output_path, step_slug, title, date, location, lat, lon, series, summary, post, topics, read_time):
+def create_markdown_file(step_output_path, step_slug, title, date, location, lat, lon, series, summary, post, topics, readTime):
 
     # Create folder
     try:
@@ -49,11 +49,11 @@ def create_markdown_file(step_output_path, step_slug, title, date, location, lat
     index_file.write('lon: ' + str(lon) + '\n')
     index_file.write('series: ' + series + '\n')
     index_file.write('summary: ' + summary + '\n')
-    index_file.write('read_time: ' + str(read_time) + '\n')
+    index_file.write('readTime: ' + str(readTime) + '\n')
 
     if len(topics) > 0:
-        index_file.write('topics:\n')
-        for topic in topics:
+        index_file.write('categories:\n')
+        for topic in categories:
             index_file.write('  - ' + topic + '\n')
     index_file.write('---\n')
     index_file.write('\n')
@@ -99,7 +99,7 @@ for step in steps:
     messages=[
         {
             "role": "user",
-            "content": "Return a JSON object containing:\n-summary\nSummary of the text in a poetic one sentence that intrigues the user to continue reading the full text\n\n-topics\nOutputs topics that this diary entry talks about (e.g loneliness, emotions)\n\n-read_time\nInteger value: Time to read the entire text in minutes . Text to return this json for:" + description
+            "content": "Return a JSON object containing:\n-summary\nSummary of the text in a poetic one sentence that intrigues the user to continue reading the full text\n\n-topics\nOutputs topics that this diary entry talks about (e.g loneliness, emotions)\n\n-readTime\nInteger value: Time to read the entire text in minutes . Text to return this json for:" + description
     }]
     , model='gpt-4o'
     , response_format={ "type": "json_object" })
@@ -129,7 +129,7 @@ for step in steps:
 
     create_markdown_file(step_output_path, step_slug, title, start_date_time, location_name
                         , step['location']['lat'], step['location']['lon']
-                        , trip_name, gpt_response_dict['summary'], description, gpt_response_dict['topics'], gpt_response_dict['read_time'])
+                        , trip_name, gpt_response_dict['summary'], description, gpt_response_dict['topics'], gpt_response_dict['readTime'])
     
     for file in photos_list:
         src_file_path = os.path.join(trip_folder_path, step_folder_path, 'photos', file)

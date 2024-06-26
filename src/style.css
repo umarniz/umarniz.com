@@ -155,7 +155,7 @@ a.section-button:hover {
 
 @media screen and (min-width: 800px) {
   section {
-    margin: 3.5rem 0;
+    margin: 1.5rem 0;
   } 
 
   h2.section-title {
@@ -583,6 +583,14 @@ p.smallSubtitle {
   line-height: 1.5;
 }
 
+p.journal-summary {
+  color: var(--light-font-color);
+  font-size: 1.0rem;
+  font-weight: 300;
+  margin-bottom: 0;
+  line-height: 1.5;
+}
+
 @media screen and (min-width: 800px) {
   p.subtitle {
     font-size: 1.8rem;
@@ -596,6 +604,13 @@ p.smallSubtitle {
     font-weight: 300;
     margin-bottom: 0;
     line-height: 1.5;
+  }
+
+  p.journal-summary {
+    /* color: var(--light-font-color); */
+    font-size: 1.2rem;
+    line-height: 1.6;
+    max-width: 100%;
   }
 }
 
@@ -713,7 +728,7 @@ main {
   border-radius: 0.35rem;
   color: var(--light-background-hover);
   font-weight: 400;
-  font-size: 0.95rem;
+  font-size: 0.85rem;
   border: 1px solid transparent;
   background: transparent;
   line-height: 1;
@@ -1400,6 +1415,7 @@ mark {
 
 /* Posts */
 
+
 .post-row {
   display: flex;
   align-items: center;
@@ -1896,7 +1912,7 @@ figure {
 .masonry-layout {
   display: flex;
   width: 100%;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(500px, 3fr));
   grid-gap: 16px;
   /* max-width: 500px; */
   align-items: center;
@@ -1911,31 +1927,57 @@ figure {
   width: 100%;
 }
 
+@media screen and (max-width: 800px) {
+  .masonry-layout {
+    display: flex;
+    flex-wrap: wrap;
+    flex-basis: 50%;
+    grid-template-columns: repeat(auto-fill, minmax(1000px, 3fr));
+    grid-gap: 16px;
+  }
+
+  .masonry-layout .gatsby-image-wrapper-constrained { 
+    max-width: 40%;
+  }
+}
+
+
 .journal-title-location {
   align-items: right;
   text-align: right;
 }
 
-.post {
-  margin-bottom: 20px;
-  background-color: #fdfeff;
-  border-style: dashed;
-  border-width: 5px;
-  border: #101010;
-  border-left: #101010;
-  border-left-color: blue;
-}
-
 .journal-row {
-  margin-bottom: 50px;
+  margin-top: 1em;
+  padding-bottom: 1em;
+  border-bottom-width: 3px;
+  border-bottom-style: solid;
+  border-bottom-color: #f3f3f3;
 }
-
-/* .masonry-layout .gatsby-image-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-} */
 
 .post-column {
   width: 100%;
+}
+
+.padded-bottom {
+  margin-bottom: 2em;
+}
+
+.clickable-image {
+    cursor: pointer;
+}
+
+
+.journal-icons {
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+  font-size: 1.0rem;
+  color: var(--font-color);
+  font-weight: 300;
+}
+
+@media screen and (max-width: 800px) {
+  .journal-icons {
+    display: none;
+  }
 }
