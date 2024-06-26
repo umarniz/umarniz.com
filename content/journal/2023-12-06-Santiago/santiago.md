@@ -1,11 +1,26 @@
 ---
-slug: santiago
-date: 2014-12-12T10:34:26.646Z
-title: "Santiago"
+slug: 2023-12-06-Santiago
+date: 2023-12-06T09:00:00.000000Z
+title: Santiago - Chile 🇨🇱
+cover: './cover.jpg'
+coverCaption: 'Santiago City'
 template: "journal"
 location: Santiago, Chile
+distanceFromLastLocationInKM: 11961
 lat: -33.43777560000001
 lon: -70.6504502
+series: "Sabbatical in South America"
+summary: In Santiago, I found camaraderie and adventure at a hostel but after not finding a good camper van to buy I change plans and fly to Patagonia to start my sabbatical.
+readTime: 3
+categories:
+  - travel
+  - self-discovery
+  - frustration
+  - friendship
+  - Patagonia
+  - mountains
+  - freedom
+  - adventure
 ---
 
 Was working till the 5th of December before taking my flight out of NL to start my sabbatical. The trip started already in the plane with a Chilean woman and a teenager with me on the place. The teenager literally gave me a presentation on Chile on her laptop to begin the journey. With high spirits and great weather I started my journey in Santiago in hostel Ventana Sur as my base camp.
@@ -20,6 +35,6 @@ With the mountains close but yet so far 2 weeks in, I gave in. The van idea stop
 
 I made plans to fly south into Puerto Natales to do a popular hike and spend new years in the mountains. As soon as I let go of the van idea, things started to flow. 
 
-I had met Ashley a few weeks ago at the bouldering gym and we went climbing Saturday and Sunday (Christmas morning) in Cach\u00f3n de Maipo. Beautiful rock to climb on and with the company of locals around me, I had one of the best weekends in ages just hanging out on the rock.
+I had met Ashley a few weeks ago at the bouldering gym and we went climbing Saturday and Sunday (Christmas morning) in Cachón de Maipo. Beautiful rock to climb on and with the company of locals around me, I had one of the best weekends in ages just hanging out on the rock.
 
-It felt good and felt right. This gives me more confidence that the I am going where I am supposed to go. With a \u2018see you soon\u2019 to all the friends I made in the city, I flew out to Puerto Natales to start my mountain journey.
+It felt good and felt right. This gives me more confidence that the I am going where I am supposed to go. With a ‘see you soon’ to all the friends I made in the city, I flew out to Puerto Natales to start my mountain journey.
