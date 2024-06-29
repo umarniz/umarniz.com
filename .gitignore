@@ -75,3 +75,4 @@ yarn-error.log
 
 # Python virtual environment
 **/venv**/
+scripts/output

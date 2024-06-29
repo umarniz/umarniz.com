@@ -53,7 +53,7 @@ def create_markdown_file(step_output_path, step_slug, title, date, location, lat
 
     if len(topics) > 0:
         index_file.write('categories:\n')
-        for topic in categories:
+        for topic in topics:
             index_file.write('  - ' + topic + '\n')
     index_file.write('---\n')
     index_file.write('\n')
@@ -99,7 +99,7 @@ for step in steps:
     messages=[
         {
             "role": "user",
-            "content": "Return a JSON object containing:\n-summary\nSummary of the text in a poetic one sentence that intrigues the user to continue reading the full text\n\n-topics\nOutputs topics that this diary entry talks about (e.g loneliness, emotions)\n\n-readTime\nInteger value: Time to read the entire text in minutes . Text to return this json for:" + description
+            "content": "Return a JSON object containing:\n-summary\nSummary of the text in a poetic one sentence that intrigues the user to continue reading the full text. Make sure the summary is in first person and only one sentence and highlights the emotions in the text.\n\n-topics\nOutputs topics that this diary entry talks about (e.g loneliness, emotions)\n\n-readTime\nInteger value: Time to read the entire text in minutes . Text to return this json for:" + description
     }]
     , model='gpt-4o'
     , response_format={ "type": "json_object" })
