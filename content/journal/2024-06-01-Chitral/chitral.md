@@ -3,7 +3,7 @@ slug: 2024-06-01-Chitral
 date: 2024-06-01T14:00:00.000000Z
 title: Chitral - Pakistan 🇵🇰
 cover: './cover.jpg'
-coverCaption: 'Diran peak (7266m)'
+coverCaption: 'View from Gol National Park'
 template: "journal"
 location: Chitral, Pakistan
 distanceFromLastLocationInKM: 1304
