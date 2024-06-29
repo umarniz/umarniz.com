@@ -17,7 +17,7 @@ tags:
 
 Involved in designing and conceptualizing the product from day 1, my role has been to oversee all technical decisions and manage the product team. Led a team of 25+ engineers to build the product and built the vision for the service in close coordination with the CEO and product owners through the years.
 
-I have overseen the management of the company including a transition to a new CEO and have been involved in the general management of the entire company.
+I have overseen the management of the company including a transition to a new CEO and have been involved in the general management of the company.
 
 Having grown the company from a startup to scale-up, I was end responsible for all product & tech teams including HR/recruiting, compliance (ISO 27001/NEN 7510) and end-to-end product and technical development.
 
