@@ -175,3 +175,9 @@ pre.language-terminal {
 .blurb {
   background: #111;
 }
+
+
+.calendar-action-link a {
+  background-color: white;
+  color: black;
+}

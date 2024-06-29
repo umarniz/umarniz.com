@@ -39,11 +39,17 @@ export default function BlogIndex({ data }) {
       <Helmet title={config.siteTitle} />
       <SEO />
       <Blurb title="Hey, I'm Umar!">
-        <h5> Managing Director, <a href="https://nicedaytherapy.com">NiceDay International</a></h5>
+        <h5> Ex Managing Director, <a href="https://nicedaytherapy.com">NiceDay International</a></h5>
         <p>
           15 years experience building 1-50 people companies.
           Engineer and tinkerer at heart. Love building products.
         </p>
+        
+        <div className='calendar-action-link'>
+          
+          <a href="https://cal.com/umarniz">Plan a call</a>
+        </div>
+        
       </Blurb>
       <div className="container index">
         <Section title="Recent Posts"  viewAllURL="/blog">

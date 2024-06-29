@@ -1981,3 +1981,30 @@ figure {
     display: none;
   }
 }
+
+.calendar-action-link {
+  margin-top: 1.5em;
+  /* text-align: right; */
+  font-size: 1.2rem;
+}
+
+.calendar-action-link a {
+  white-space: nowrap;
+  font-size: 1.0rem;
+  text-align: right;
+  text-decoration: none;
+  border: 0rem solid;
+  border-radius: 20px;
+  background-color: grey;
+  color: white;
+  padding: 0.5rem 1rem;
+  transition: border-radius 0.3s ease-out;
+}
+  
+.calendar-action-link a:hover {
+  border-radius: 10px;
+}
+
+.text-center {
+  text-align: center;
+}
