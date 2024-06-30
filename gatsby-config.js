@@ -70,7 +70,7 @@ module.exports = {
               {
                 allMdx(
                   limit: 30,
-                  sort: { order: DESC, fields: [frontmatter___date] },
+                  sort: {frontmatter: {date: DESC}},
                   filter: { frontmatter: { template: { eq: "post" } } }
                 ) {
                   edges {
