@@ -11,7 +11,9 @@ tags: [Technology,LLMs,Machine Learning]
 
 ![A programmer writing code](./dev-env-for-llms.png)
 
-<figcaption>AI generated art using DALL·E 2</figcaption></figure>
+<figcaption>AI generated art using DALL·E 2</figcaption>
+
+</figure>
 
 With release of the new large language model [Falcon LLM](https://falconllm.tii.ae/) which topped the [Open LLM leaderboard](https://huggingface.co/spaces/HuggingFaceH4/open_llm_leaderboard) and is a truly open source model i.e also free for commercial use, I have been itching to prototype some ideas and the capabilities of this system.
 
@@ -25,7 +27,7 @@ When working with a cloud provider, first and foremost thing to do is to setup b
 
 ![Image showing billing alert](billing_alert.png)
 
-The most cost efficient VM instace I found on a public cloud provider was to run this was on GCE with an NVIDIA L4 (24GB VRAM) for around $0.87 / hour. I could see much cheaper instances on [VastAI](https://vast.ai/) but <$1/hour seemed quite reasonable for the reliability that GCE provides.
+The most cost efficient VM instace I found on a public cloud provider was to run this was on GCE with an NVIDIA L4 (24GB VRAM) for around $0.87 / hour. I could see much cheaper instances on [VastAI](https://vast.ai/) but \<$1/hour seemed quite reasonable for the reliability that GCE provides.
 
 As its a side project, I would be surprised to do have this machine on for more than 15 hours a week which results in ~$50/month if I am being quite productive.
 
@@ -33,7 +35,9 @@ As its a side project, I would be surprised to do have this machine on for more 
 
 ![Image showing GCE configuration with NVIDIA L4 GPU and 32GB RAM](./gce.png)
 
-<figcaption>NVIDIA L4 (24GB VRAM) + 32GB RAM to be able to load the instruct checkpoint in memory</figcaption></figure>
+<figcaption>NVIDIA L4 (24GB VRAM) + 32GB RAM to be able to load the instruct checkpoint in memory</figcaption>
+
+</figure>
 
 
 To try out the LLM model itself, I would recommend trying out the example on the [falcon-7b-instruct model page](https://huggingface.co/tiiuae/falcon-7b-instruct).

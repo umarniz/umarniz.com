@@ -36,7 +36,9 @@ In the above test case, we ask the robot to get us to home screen with any user.
 
 ![Screenshots of 4 different screens captured by spoon when running the tests](./android-test-driven-development-0.png)
 
-<figcaption>A spoon test showing design problems and testing empty field errors</figcaption></figure>
+<figcaption>A spoon test showing design problems and testing empty field errors</figcaption>
+
+</figure>
 
 If the applications is already logged in and we want to login with a specific existing user, we make sure we logout and re-login.
 
@@ -56,7 +58,9 @@ check(matches(TestHelpers.hasErrorText(R.string.error\_should\_fill\_all\_fields
 
 ![Screenshots of different screens captured by spoon for the RegisterUser test case](./android-test-driven-development-1.png)
 
-<figcaption>Note how the test only has RegisterUser but the app starts by logging the user out and going to registration screen first</figcaption></figure>
+<figcaption>Note how the test only has RegisterUser but the app starts by logging the user out and going to registration screen first</figcaption>
+
+</figure>
 
 With such a system in place, testing became a breeze as we can make robots for each key part of the application and reuse them with helper classes to have tests that are closer to natural language. To further extend the system, we used [Spoon](https://github.com/square/spoon) to be able to make pretty HTML reports like above and run tests on all connected devices at once with a simple:
 

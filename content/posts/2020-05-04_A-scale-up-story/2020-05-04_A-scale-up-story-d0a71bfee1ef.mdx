@@ -24,7 +24,9 @@ In the last few weeks, we have seen immense growth in our user base and have gro
 
 ![](./a-scale-up-story-1.png)
 
-<figcaption>Incoming Requests</figcaption></figure>
+<figcaption>Incoming Requests</figcaption>
+
+</figure>
 
 As such growth spurge is a very new challenge for us, I want to share our story, what we did to facilitate all the users, and the moves we had already made in the past which helped us a lot in these times.
 
@@ -42,7 +44,9 @@ Having a pretty stable infrastructure that I have [detailed in the past](https:/
 
 ![](./a-scale-up-story-2.png)
 
-<figcaption>Load across all the entire MariaDB cluster</figcaption></figure>
+<figcaption>Load across all the entire MariaDB cluster</figcaption>
+
+</figure>
 
 Having a cluster of MariaDB with all masters, we immediately upgraded one of our nodes to be 8x its size and specified our load balancer (HAProxy) to use this instance first for all incoming requests and only if this server was down to redirect requests.
 
@@ -54,7 +58,9 @@ With the database stabilized, we now had an enormous load on our chat server ([E
 
 ![](./a-scale-up-story-3.png)
 
-<figcaption>CPU load on the Rancher Agent with Ejabberd</figcaption></figure>
+<figcaption>CPU load on the Rancher Agent with Ejabberd</figcaption>
+
+</figure>
 
 We spawned a new server that was 8x the size of our current chat server and pinned only the chat service to this server and voila, our entire service stabilized. The response times on our main backend were still a bit slow but the whole experience of the product was quite good and the bear hug was converted to a tight embrace :) We had survived the first wave!
 
@@ -78,7 +84,9 @@ Even in this time of rushing to scale up, members of our team didn’t forget th
 
 ![](./a-scale-up-story-4.png)
 
-<figcaption>Our newly added server. rancher-agent-<b>CV19</b> reporting for duty!</figcaption></figure>
+<figcaption>Our newly added server. rancher-agent-<b>CV19</b> reporting for duty!</figcaption>
+
+</figure>
 
 ### **Things start going sour**
 
@@ -90,7 +98,9 @@ We knew we had some inefficiencies in the way we load chat history in our code a
 
 ![](./a-scale-up-story-5.png)
 
-<figcaption>Even with a 64 core node, the server is heading towards certain failure!</figcaption></figure>
+<figcaption>Even with a 64 core node, the server is heading towards certain failure!</figcaption>
+
+</figure>
 
 Our infrastructure lead got a great clue when going through the [information schema](https://mariadb.com/kb/en/information-schema/) in the database of our chat server and noticing that 2 of the tables _mod_caps_ and _sr_user_ were queried over a billion times! Having worked with Ejabberd for a few users, we knew these tables were used by the Shared Rosters feature which we use to add users into groups to allow users in a group to see each other's presence status (i.e whether they are online or not).
 
@@ -104,7 +114,9 @@ This small presence feature turned out to have a deadly chain reaction completel
 
 ![](./a-scale-up-story-6.png)
 
-<figcaption>I would like to ski down that slope!</figcaption></figure>
+<figcaption>I would like to ski down that slope!</figcaption>
+
+</figure>
 
 While fixing the problem, we intended to enable caching in the Shared Roster feature in Ejabberd but unbeknown to us this actually wasn’t supported in the version of Ejabberd we were using and hence caused an incorrect configuration error which is why Ejabberd had just shut down the feature which shed all load!
 

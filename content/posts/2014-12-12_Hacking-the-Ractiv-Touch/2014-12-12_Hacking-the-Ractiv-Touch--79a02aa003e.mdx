@@ -35,7 +35,9 @@ Going through the assembly code I noticed that the app was calling a function ca
 
 ![Disassembled eSPAEAWB_SWUnlock function](./hacking-the-ractiv-touch-1.jpeg)
 
-<figcaption>Variable names thanks to the debug symbols</figcaption></figure>
+<figcaption>Variable names thanks to the debug symbols</figcaption>
+
+</figure>
 
 Analyzing the disassembled file showed that the camera was actually unlocking the camera before creating the direct show streams. This made sense and was a reasonable explanation for the null stream i was getting.
 
@@ -53,7 +55,9 @@ Returned this:
 
 ![Disassembled dump of the dll](./hacking-the-ractiv-touch-2.jpeg)
 
-<figcaption>The functions exposed in this dll. The @ value at the end indicates parameter bits.</figcaption></figure>
+<figcaption>The functions exposed in this dll. The @ value at the end indicates parameter bits.</figcaption>
+
+</figure>
 
 Having the parameter made it easy to figure out parameter using just intuition, but the second DLL eSPDI.dll had undecorated functions and returned this:
 

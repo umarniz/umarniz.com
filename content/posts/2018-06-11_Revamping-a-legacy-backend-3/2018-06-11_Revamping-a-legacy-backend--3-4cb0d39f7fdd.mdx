@@ -15,7 +15,9 @@ series: "Revamping a legacy backend"
 
 ![A large amounts of duplicate cookies coming out of an oven](./revamping-a-legacy-back-end-3-0.jpeg)
 
-<figcaption>Cookie Production Line (Source: Unknown)</figcaption></figure>
+<figcaption>Cookie Production Line (Source: Unknown)</figcaption>
+
+</figure>
 
 With an [infrastructure as code](https://hackernoon.com/revamping-a-legacy-backend-1-1429a4ce77cb) for our server provisioning and a [containerized environment for our APIs](https://hackernoon.com/revamping-a-legacy-backend-2-56d6c98df1f3) we are ready to migrate our production stack to the new container based setup. In this article I will explain our approach to production deployment and how we are ensuring high up-time of our legacy stack with minimal support.
 
@@ -35,7 +37,9 @@ These alerts are fed into our incident management tool, [OpsGenie](https://www.o
 
 ![A cat pressing a big red button](./revamping-a-legacy-back-end-3-1.gif)
 
-<figcaption><b>Time to deploy!</b></figcaption></figure>
+<figcaption><b>Time to deploy!</b></figcaption>
+
+</figure>
 
 Now that we have monitoring and alerting setup, we are ready to deploy to production! We initially mirrored all our services to a production rancher environment and ran stress tests for a few days to ensure everything was working as expected. After several days of testing and fine tuning our stack by re-deploying images multiple times a day we found and fixed several problems related to cleaning up dangling images, disk space issues due to oversized logs, etc and were now ready to do the final production switch over.
 

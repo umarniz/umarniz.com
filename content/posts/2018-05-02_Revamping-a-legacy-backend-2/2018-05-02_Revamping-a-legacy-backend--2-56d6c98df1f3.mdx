@@ -13,7 +13,9 @@ series: "Revamping a legacy backend"
 
 ![A crumbling house next to a brand new mansion](./revamping-a-legacy-backend-2-0.jpeg)
 
-<figcaption>Photo by <a href="http://www.gdnordley.com/" className="figcaption-link">G. D. Nordley</a></figcaption></figure>
+<figcaption>Photo by <a href="http://www.gdnordley.com/" className="figcaption-link">G. D. Nordley</a></figcaption>
+
+</figure>
 
 In my [last article](https://hackernoon.com/revamping-a-legacy-backend-1-1429a4ce77cb) I shared our approach at [Sense Health](https://www.sense-health.com/) to use Infrastructure as Code for creating and provisioning servers. While this gives us a solid base to introduce new clusters into our stack and increases reliability of our servers to run different services and databases, we are still missing a solution to deploy our software.
 
@@ -67,5 +69,7 @@ To do this we used our existing Travis CI build setup to build Docker images whe
 
 ![Code in VSCode and push to Github. Github triggers Travis build. On successful build Travis triggers webhook in Rancher. Rancher upgrades running docker container. ](./revamping-a-legacy-backend-2-3.png)
 
-<figcaption>Continuous Deployment to Staging</figcaption></figure>
+<figcaption>Continuous Deployment to Staging</figcaption>
+
+</figure>
   

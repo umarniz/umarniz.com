@@ -18,7 +18,9 @@ After joining [Sense Health](http://www.sense-health.com/) a few months ago, I h
 
 ![A train on fire crashing out of its track](./docker-in-development-0.png)
 
-<figcaption>Track has not been initialised</figcaption></figure>
+<figcaption>Track has not been initialised</figcaption>
+
+</figure>
 
 docker-compose has no built-in mechanism to [wait for a service](https://docs.docker.com/compose/startup-order/) to fully initialise before starting another service. You can define the order each container is started in by using ‘[depends_on](https://docs.docker.com/compose/compose-file/#dependson)’ in the compose image but it does not guarantee for a service to be ready before the next container is started.
 
@@ -32,7 +34,9 @@ As I am dockerizing a legacy service and don’t want to do massive modification
 
 ![A cat in front of 3 upside down cups](./docker-in-development-1.jpeg)
 
-<figcaption>Which container has the ball?</figcaption></figure>
+<figcaption>Which container has the ball?</figcaption>
+
+</figure>
 
 I was dockerizing services that already were running in production and were only actively developed by very few people in my company. I noticed even though a lot of people had the skills to work on these services they did not go hands on as there was a high likelihood of breaking things and the setup steps for building and testing the services were quite complex and intimidating for new developers to follow.
 
@@ -46,7 +50,9 @@ This approach gave people an actual reason to work with docker. People trying to
 
 ![A dog standing on top of a moving turtle](./docker-in-development-2.jpeg)
 
-<figcaption>Be lazy. Don’t do if its already done.</figcaption></figure>
+<figcaption>Be lazy. Don’t do if its already done.</figcaption>
+
+</figure>
 
 Another important thing during development is the need for configuring or initialising databases with backups. Initialising a docker container with a custom configuration is quite straightforward if you build your own docker image but with lots of continuously evolving databases required for our projects I did not want to create a modified docker image for each database.
 

@@ -24,7 +24,7 @@ Second, we build the docker image by going into the repo directory and running t
 docker build -t jenkins_android .
 ```
 
-The final character ‘.’ here represents that we want to build the repo from the current directory. Docker looks for a “Dockerfile” in the current directory and uses the instructions in it to build the image. If you want to rename the image you can add “-t <image_name>” before the dot. This will take a bit of time as Docker will download all dependencies and build them in the container.
+The final character ‘.’ here represents that we want to build the repo from the current directory. Docker looks for a “Dockerfile” in the current directory and uses the instructions in it to build the image. If you want to rename the image you can add “-t \<image_name>” before the dot. This will take a bit of time as Docker will download all dependencies and build them in the container.
 
 Once the image is built successfully you can see the images you have installed on the system by typing.
 
