@@ -13,13 +13,13 @@ const VideoPlayer = (props) => {
   let webmURL = webM
 
   return (
-    \<figure>
+    <figure>
       <video className="video-player" loop={true} autoPlay={autoplayParam} controls={controls || false} preload={preload || 'auto'} poster={poster} muted>
         {mp4URL && <source type="video/mp4" src={mp4URL}></source>}
         {webmURL && <source type="video/webm" src={webmURL}></source>}
       </video>
-      \<figcaption>{caption}\</figcaption>
-    \</figure>
+      <figcaption>{caption}</figcaption>
+    </figure>
   )
 }
 

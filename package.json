@@ -11,7 +11,7 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "lint": "eslint . --ext md,mdx"
+    "lint": "eslint content/posts  --ext md --ext mdx --ext js"
   },
   "dependencies": {
     "@browniebroke/gatsby-image-gallery": "^8.2.0",
@@ -45,6 +45,7 @@
     "ws": "^8.17.1"
   },
   "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "eslint": "~8.57.0",
     "eslint-config-react-app": "^7.0.1",
     "eslint-plugin-mdx": "^3.1.5",

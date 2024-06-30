@@ -10,10 +10,9 @@ import Comment from '../components/Comment'
 import Blurb from '../components/Blurb'
 import config from '../utils/config'
 import { slugify } from '../utils/helpers'
-import { MDXRenderer } from "gatsby-plugin-mdx"
 import Gallery from '@browniebroke/gatsby-image-gallery'
 
-export default function JournalTemplate({ data, pageContext }) {
+export default function JournalTemplate({ data, children, pageContext }) {
     const post = data.mdx
     
     const images = post.images.map(image => image.childImageSharp)
@@ -24,15 +23,15 @@ export default function JournalTemplate({ data, pageContext }) {
     return (
         <Layout>
             {cover && (
-                \<figure>
+                <figure>
                     <GatsbyImage
                         layout="fullWidth"
                         placeholder="blurred"
                         image={cover.childImageSharp.gatsbyImageData}
                         className="full-width-cover"
                     />
-                    \<figcaption>{coverCaption}\</figcaption>
-                \</figure>
+                    <figcaption>{coverCaption}</figcaption>
+                </figure>
             )}
             <Helmet title={`${post.frontmatter.title} | ${config.siteTitle}`} />
             <SEO postPath={post.fields.slug} postNode={post} postSEO />
@@ -59,7 +58,7 @@ export default function JournalTemplate({ data, pageContext }) {
 
                     </header>
                   
-                    <MDXRenderer className="article-post">{post.body}</MDXRenderer>
+                    {children}
 
                     <Gallery images={images} imgClass="clickable-image" />
                     
@@ -95,7 +94,6 @@ export default function JournalTemplate({ data, pageContext }) {
 export const pageQuery = graphql`
   query JournalsBySlug($slug: String!) {
     mdx(fields: { slug: { eq: $slug } }) {
-        body
         excerpt
         fields {
             slug

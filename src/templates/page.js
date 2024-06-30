@@ -1,13 +1,12 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import Helmet from 'react-helmet'
-import { MDXRenderer } from "gatsby-plugin-mdx"
 
 import Layout from '../components/Layout'
 import SEO from '../components/SEO'
 import config from '../utils/config'
 
-export default function PageTemplate({ data }) {
+export default function PageTemplate({ data, children }) {
   const post = data.mdx
   const { tags, categories, cardImage, title, description, date, role, event, location } = post.frontmatter
 
@@ -42,7 +41,7 @@ export default function PageTemplate({ data }) {
         </div>
       </header>
       <section className="container page">
-        <MDXRenderer frontmatter={post.frontmatter}>{post.body}</MDXRenderer>
+        {children}
       </section>
     </Layout>
   )
@@ -51,7 +50,6 @@ export default function PageTemplate({ data }) {
 export const pageQuery = graphql`
   query PageBySlug($slug: String!) {
     mdx(fields: { slug: { eq: $slug } }) {
-      body
       frontmatter {
         title
         description

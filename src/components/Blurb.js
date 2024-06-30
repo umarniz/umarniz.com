@@ -7,7 +7,7 @@ export default function Blurb({ title, children }) {
       <div className="container">
         <div>  
           <StaticImage src="../static/me_round_512.png"
-                placeholder="tracedSVG"
+                placeholder="blurred"
                 alt="Umar Nizamani's Profile Photo"
                 className="avatar"
           />

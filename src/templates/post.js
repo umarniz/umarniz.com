@@ -10,9 +10,8 @@ import Comment from '../components/Comment'
 import Blurb from '../components/Blurb'
 import config from '../utils/config'
 import { slugify } from '../utils/helpers'
-import { MDXRenderer } from "gatsby-plugin-mdx"
 
-export default function PostTemplate({ data, pageContext }) {
+export default function PostTemplate({ data, children, pageContext }) {
   const post = data.mdx
   const { previous, next } = pageContext
   const { tags, cover, coverCaption, title, description, date } = post.frontmatter
@@ -20,15 +19,15 @@ export default function PostTemplate({ data, pageContext }) {
   return (
     <Layout>
       {cover && (
-        \<figure>
+        <figure>
           <GatsbyImage
             layout="fullWidth"
             placeholder="blurred"
             image={cover.childImageSharp.gatsbyImageData}
             className="full-width-cover"
           />
-          \<figcaption>{coverCaption}\</figcaption>
-        \</figure>
+          <figcaption>{coverCaption}</figcaption>
+        </figure>
         )}
       <Helmet title={`${post.frontmatter.title} | ${config.siteTitle}`} />
       <SEO postPath={post.fields.slug} postNode={post} postSEO />
@@ -51,7 +50,7 @@ export default function PostTemplate({ data, pageContext }) {
 
             {description && <p className="description">{description}</p>}
           </header>
-          <MDXRenderer className="article-post">{post.body}</MDXRenderer>
+          {children}
           {tags && (
           <div className="tags">
             {tags.map((tag) => (
@@ -84,7 +83,6 @@ export default function PostTemplate({ data, pageContext }) {
 export const pageQuery = graphql`
   query BlogPostBySlug($slug: String!) {
     mdx(fields: { slug: { eq: $slug } }) {
-      body
       excerpt
       fields {
         slug
