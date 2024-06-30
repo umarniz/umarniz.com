@@ -25,6 +25,9 @@ const createPages = async ({ graphql, actions }) => {
               fields {
                 slug
               }
+              internal {
+                contentFilePath
+              }
             }
           }
         }
@@ -65,7 +68,7 @@ const createPages = async ({ graphql, actions }) => {
 
     createPage({
       path: post.node.fields.slug,
-      component: blogPage,
+      component: `${blogPage}?__contentFilePath=${post.node.internal.contentFilePath}`,
       context: {
         slug: post.node.fields.slug,
         previous,
@@ -81,7 +84,7 @@ const createPages = async ({ graphql, actions }) => {
   pages.forEach((page) => {
     createPage({
       path: page.node.fields.slug,
-      component: pagePage,
+      component: `${pagePage}?__contentFilePath=${page.node.internal.contentFilePath}`,
       context: {
         slug: page.node.fields.slug,
       },
@@ -98,7 +101,7 @@ const createPages = async ({ graphql, actions }) => {
 
     createPage({
       path: journal.node.fields.slug,
-      component: journalPage,
+      component: `${journalPage}?__contentFilePath=${journal.node.internal.contentFilePath}`,
       context: {
         slug: journal.node.fields.slug,
         previous,
