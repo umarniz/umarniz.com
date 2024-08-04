@@ -24,8 +24,8 @@ export default function Layout({ children }) {
         <script src="https://unpkg.com/@request-sentinel/request-sentinel-js@0.1.0/dist/index.js" async></script>
         <script>
           window.onload = function() {
-            RequestSentinel.init('l22CzMpSsQSdq3rqWcgPhojXGHfkA2Ne', '1.0', 'prod');
-          };
+            RequestSentinel.init('l22CzMpSsQSdq3rqWcgPhojXGHfkA2Ne', '1.0', 'prod')
+          }
         </script>
       </Helmet>
       <Nav />
