@@ -21,6 +21,10 @@ export default function Layout({ children }) {
         <html lang="en"/>
         <link rel="shortcut icon" type="image/png" />
         <script defer src="https://cloud.umami.is/script.js" data-website-id="496097ed-8151-4c01-9f87-ccab688479ee"></script>
+        <script src="https://unpkg.com/@request-sentinel/request-sentinel-js@0.1.0/dist/index.js"></script>
+        <script>
+            RequestSentinel.init('l22CzMpSsQSdq3rqWcgPhojXGHfkA2Ne', '1.0', 'prod');
+        </script>
       </Helmet>
       <Nav />
       <main className="main-container">
