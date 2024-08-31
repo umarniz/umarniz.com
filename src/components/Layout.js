@@ -12,13 +12,9 @@ import '../new-moon.css'
 import VideoPlayer from './mdx/VideoPlayer'
 import SlidesViewer from './mdx/SlidesViewer'
 
-import RequestSentinel from '@request-sentinel/request-sentinel-js'
-
 const mdxComponents = {VideoPlayer, SlidesViewer}
 
 export default function Layout({ children }) {
-  RequestSentinel.init('l22CzMpSsQSdq3rqWcgPhojXGHfkA2Ne', '1.0', 'prod', {debug: true})
-
   return (
     <>
       <Helmet>

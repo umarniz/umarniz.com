@@ -2206,13 +2206,6 @@
     "@pnpm/network.ca-file" "^1.0.1"
     config-chain "^1.1.11"
 
-"@request-sentinel/request-sentinel-js@^0.1.2":
-  version "0.1.2"
-  resolved "https://registry.yarnpkg.com/@request-sentinel/request-sentinel-js/-/request-sentinel-js-0.1.2.tgz#098bc83d00c45cab61cc0732f3dd2a3c44982359"
-  integrity sha512-iqN22kWGsnd6cMV1lIv4RmtQ3EkKKmWHy2Pzol1U5Aqr/G8ovc/YgFL1fHpHjv4uxm4TTzr9N5GjfUq1MG0zfg==
-  dependencies:
-    typescript "^5.5.4"
-
 "@rushstack/eslint-patch@^1.1.0":
   version "1.10.3"
   resolved "https://registry.yarnpkg.com/@rushstack/eslint-patch/-/eslint-patch-1.10.3.tgz#391d528054f758f81e53210f1a1eebcf1a8b1d20"
