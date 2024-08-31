@@ -17,6 +17,7 @@
     "@browniebroke/gatsby-image-gallery": "^8.2.0",
     "@mdx-js/mdx": "^3.0.1",
     "@mdx-js/react": "^3.0.1",
+    "@request-sentinel/request-sentinel-js": "^0.1.2",
     "browserslist": "^4.16.5",
     "gatsby": "^5.13.6",
     "gatsby-plugin-feed": "^5.13.1",
