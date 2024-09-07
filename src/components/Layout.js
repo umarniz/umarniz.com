@@ -20,7 +20,7 @@ export default function Layout({ children }) {
       <Helmet>
         <html lang="en"/>
         <link rel="shortcut icon" type="image/png" />
-        <script defer src="https://cloud.umami.is/script.js" data-website-id="496097ed-8151-4c01-9f87-ccab688479ee"></script>
+        <script defer src="https://umami.umarniz.com/script.js" data-website-id="07ef5bfa-b054-4a72-b278-3640b752e024"></script>
       </Helmet>
       <Nav />
       <main className="main-container">
