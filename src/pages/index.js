@@ -39,7 +39,7 @@ export default function BlogIndex({ data }) {
       <Helmet title={config.siteTitle} />
       <SEO />
       <Blurb title="Hey, I'm Umar!">
-        <h5> Ex Managing Director, <a href="https://nicedaytherapy.com">NiceDay International</a></h5>
+        <h5> Founder & CEO, <a href="https://www.inquira.health">Inquira Health</a></h5>
         <p>
           15 years experience building 1-50 people companies.
           Engineer and tinkerer at heart. Love building products.
