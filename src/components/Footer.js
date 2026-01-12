@@ -13,7 +13,7 @@ export default function Footer() {
       <section className="container">
         <hr/>
         <nav className="justify-center">
-          <a href="https://twitter.com/Rapchik">Twitter</a> | <a  href="https://github.com/umarniz/">Github</a> | <a href="https://www.linkedin.com/in/umar-nizamani-aab50a16/">LinkedIn</a>
+          <a href="https://x.com/umarniz">X</a> | <a  href="https://github.com/umarniz/">Github</a> | <a href="https://www.linkedin.com/in/umar-nizamani-aab50a16/">LinkedIn</a>
           <br/>
           Copyright {new Date().getFullYear()} Umar Nizamani. <a href="/files/umar_nizamani_public_key.txt">PGP Key</a> 
         </nav>
